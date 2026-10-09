@@ -2,13 +2,14 @@
   "users": [
     {
       "id": "usr_current",
-      "github_username": "sawantsukumar",
+      "github_username": "Sukumarsawant",
       "reddit_username": "",
       "hackernews_username": "",
-      "name": "@sawantsukumar",
-      "email": "sawantsukumar@users.noreply.github.com",
-      "avatar_url": "https://github.com/sawantsukumar.png",
-      "created_at": "2026-10-09T11:27:37.544Z"
+      "name": "@Sukumarsawant",
+      "email": "Sukumarsawant@users.noreply.github.com",
+      "avatar_url": "https://github.com/Sukumarsawant.png",
+      "created_at": "2026-10-09T11:29:46.354Z",
+      "github_oauth_connected": true
     }
   ],
   "github_data": [
@@ -29,6 +30,20 @@
       ],
       "profileReadme": "![](https://komarev.com/ghpvc/?username=sukumarsawant)\n\nSecond-year student at Mumbai University. I mainly code C/C++, and others are Python, Java, JavaScript, and backends. Mostly do competitive programming and exploring Compilers and computer arithmetics currently.\n\nCurrent work: GSoC 26' Contributor @LLVM\n<h3 align=\"left\">Connect with me:</h3>\n<p align=\"left\">\n<a href=\"https://x.com/18yearodd\"><img src=\"https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg\" height=\"30\"/></a>&nbsp;\n<a href=\"https://www.linkedin.com/in/sukumar-sawant\"><img src=\"https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg\" height=\"30\"/></a>&nbsp;\n<a href=\"https://www.codechef.com/users/sukumarsawant\"><img src=\"https://cdn.jsdelivr.net/npm/simple-icons@3.1.0/icons/codechef.svg\" height=\"30\"/></a>&nbsp;\n<a href=\"https://www.hackerrank.com/sukumar_sawant\"><img src=\"https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/hackerrank.svg\" height=\"30\"/></a>&nbsp;\n<a href=\"https://codeforces.com/profile/sawantsukumar\"><img src=\"https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/codeforces.svg\" height=\"30\"/></a>&nbsp;\n<a href=\"https://www.leetcode.com/sawantsukumar\"><img src=\"https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/leet-code.svg\" height=\"30\"/></a>&nbsp;\n<a href=\"https://discordapp.com/users/1167047110655483935\"><img src=\"https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/discord.svg\" height=\"30\"/></a>\n</p>\n\nsawantsukumar@gmail.com\n",
       "repos": [
+        {
+          "name": "wdl-project",
+          "language": "JavaScript",
+          "description": "",
+          "html_url": "https://github.com/Sukumarsawant/wdl-project",
+          "stargazers_count": 0
+        },
+        {
+          "name": "dwm-project",
+          "language": "Python",
+          "description": "",
+          "html_url": "https://github.com/Sukumarsawant/dwm-project",
+          "stargazers_count": 0
+        },
         {
           "name": "sukumarsawant.github.io",
           "language": "CSS",
@@ -224,23 +239,63 @@
           "description": "",
           "html_url": "https://github.com/Sukumarsawant/python_sem4",
           "stargazers_count": 0
-        },
-        {
-          "name": "ai-tutor-demo",
-          "language": "TypeScript",
-          "description": "",
-          "html_url": "https://github.com/Sukumarsawant/ai-tutor-demo",
-          "stargazers_count": 0
-        },
-        {
-          "name": "realtime-exp",
-          "language": "JavaScript",
-          "description": "",
-          "html_url": "https://github.com/Sukumarsawant/realtime-exp",
-          "stargazers_count": 0
         }
       ],
       "events": [
+        {
+          "type": "PushEvent",
+          "repo": "Sukumarsawant/wdl-project",
+          "created_at": "2026-10-09T11:16:04Z",
+          "comment": ""
+        },
+        {
+          "type": "CreateEvent",
+          "repo": "Sukumarsawant/wdl-project",
+          "created_at": "2026-10-09T11:05:12Z",
+          "comment": ""
+        },
+        {
+          "type": "CreateEvent",
+          "repo": "Sukumarsawant/dwm-project",
+          "created_at": "2026-10-09T10:29:47Z",
+          "comment": ""
+        },
+        {
+          "type": "PullRequestReviewCommentEvent",
+          "repo": "llvm/llvm-project",
+          "created_at": "2026-10-08T13:58:00Z",
+          "comment": "missing entrypoint for llogbf128"
+        },
+        {
+          "type": "PullRequestReviewEvent",
+          "repo": "llvm/llvm-project",
+          "created_at": "2026-10-08T13:59:23Z",
+          "comment": ""
+        },
+        {
+          "type": "PullRequestReviewEvent",
+          "repo": "llvm/llvm-project",
+          "created_at": "2026-10-08T13:59:23Z",
+          "comment": ""
+        },
+        {
+          "type": "PullRequestReviewEvent",
+          "repo": "llvm/llvm-project",
+          "created_at": "2026-10-06T17:58:26Z",
+          "comment": ""
+        },
+        {
+          "type": "PushEvent",
+          "repo": "llvm/llvm-project",
+          "created_at": "2026-10-05T09:29:43Z",
+          "comment": ""
+        },
+        {
+          "type": "PushEvent",
+          "repo": "StarOne01/llvm-project",
+          "created_at": "2026-10-05T09:00:13Z",
+          "comment": ""
+        },
         {
           "type": "PushEvent",
           "repo": "SwiftByte6/webwdl-front",
@@ -726,77 +781,11 @@
           "repo": "llvm/llvm-project",
           "created_at": "2026-09-18T14:12:28Z",
           "comment": ""
-        },
-        {
-          "type": "PullRequestReviewEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-18T21:33:15Z",
-          "comment": ""
-        },
-        {
-          "type": "PullRequestReviewEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-18T21:33:15Z",
-          "comment": ""
-        },
-        {
-          "type": "PullRequestReviewCommentEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-18T21:27:23Z",
-          "comment": "Why typename here ?"
-        },
-        {
-          "type": "PushEvent",
-          "repo": "Sukumarsawant/llvm-project",
-          "created_at": "2026-09-18T20:14:12Z",
-          "comment": ""
-        },
-        {
-          "type": "PushEvent",
-          "repo": "Sukumarsawant/llvm-project",
-          "created_at": "2026-09-18T20:05:26Z",
-          "comment": ""
-        },
-        {
-          "type": "PushEvent",
-          "repo": "Sukumarsawant/llvm-project",
-          "created_at": "2026-09-18T20:00:25Z",
-          "comment": ""
-        },
-        {
-          "type": "IssueCommentEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-18T19:40:21Z",
-          "comment": "I think this has been completed by https://github.com/llvm/llvm-project/pull/194154"
-        },
-        {
-          "type": "IssueCommentEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-18T19:36:46Z",
-          "comment": "can you sync this one since the constexpr PR is now merged"
-        },
-        {
-          "type": "PullRequestReviewEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-18T16:49:56Z",
-          "comment": ""
-        },
-        {
-          "type": "PullRequestReviewEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-18T15:17:23Z",
-          "comment": ""
-        },
-        {
-          "type": "PullRequestReviewEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-18T15:17:23Z",
-          "comment": ""
         }
       ],
       "profile_url": "https://github.com/Sukumarsawant",
       "avatar_url": "https://avatars.githubusercontent.com/u/174877462?v=4",
-      "updated_at": "2026-10-06T04:31:32.554Z"
+      "updated_at": "2026-10-09T11:32:04.940Z"
     }
   ],
   "reddit_data": [

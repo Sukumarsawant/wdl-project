@@ -506,7 +506,7 @@ export default function RiskReportPage() {
                   )}
                 </div>
               </div>
-            ) : currentAudit.itemCount === 0 ? (
+            ) : selectedPlatform === 'hackernews' && currentAudit.itemCount === 0 ? (
               <div className="md:col-span-2 bg-slate-50 border border-slate-200 rounded-2xl p-8 text-center">
                 <h4 className="text-lg font-extrabold text-slate-900">No public Hacker News activity found</h4>
                 <p className="text-sm text-slate-500 mt-2">Check the username spelling. Hacker News usernames are case-sensitive and only public submissions can be analyzed.</p>

@@ -55,15 +55,15 @@ export async function GET(request) {
 
   // 2. Fetch LIVE Reddit Activity
   let liveRd = rdUsername ? await fetchRedditActivity(rdUsername, 100) : [];
-  if (!liveRd || liveRd.length === 0) {
+  if (rdUsername && (!liveRd || liveRd.length === 0)) {
     liveRd = getRedditData(user.id) || [];
   } else {
-    saveRedditData(user.id, liveRd);
+    if (rdUsername) saveRedditData(user.id, liveRd);
   }
 
   // 3. SEPARATE INDEPENDENT PLATFORM AUDITS
   const githubAudit = extractGithubAudit(liveGh);
-  const redditAudit = extractRedditAudit(liveRd, rdUsername || 'unknown');
+  const redditAudit = extractRedditAudit(rdUsername ? liveRd : [], rdUsername || 'unknown');
   const liveHn = hnUsername ? await fetchHackerNewsActivity(hnUsername, 100) : [];
   const hackernewsAudit = extractHackerNewsAudit(liveHn, hnUsername || 'unknown');
 
