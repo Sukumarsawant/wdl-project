@@ -61,8 +61,9 @@ export default function RiskReportPage() {
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [downloading, setDownloading] = useState(false);
-  const [selectedPlatform, setSelectedPlatform] = useState('reddit'); // 'github' | 'reddit' | 'hackernews'
+  const [selectedPlatform, setSelectedPlatform] = useState('reddit'); // 'github' | 'reddit' | 'hackernews' | 'stackoverflow'
   const [hackerNewsHandle, setHackerNewsHandle] = useState('');
+  const [stackoverflowHandle, setStackoverflowHandle] = useState('');
 
   // AI Remediation Modal State
   const [activeSanitizeModal, setActiveSanitizeModal] = useState(false);
@@ -78,7 +79,7 @@ export default function RiskReportPage() {
     try {
       const params = new URLSearchParams();
       if (forceRefresh) params.set('refresh', 'true');
-      if (handleOverride.trim()) params.set('hn', handleOverride.trim());
+      if (handleOverride.trim()) params.set(selectedPlatform === 'stackoverflow' ? 'stackoverflow' : 'hn', handleOverride.trim());
       const url = `/api/audit${params.toString() ? `?${params}` : ''}`;
       const res = await fetch(url);
       if (res.status === 401) {
@@ -94,8 +95,10 @@ export default function RiskReportPage() {
           setSelectedPlatform('reddit');
         } else if (json.connectionStatus?.github?.connected && !json.connectionStatus?.reddit?.connected) {
           setSelectedPlatform('github');
-        } else if (json.connectionStatus?.hackernews?.connected && !json.connectionStatus?.github?.connected && !json.connectionStatus?.reddit?.connected) {
+        } else if (json.connectionStatus?.hackernews?.connected && !json.connectionStatus?.github?.connected && !json.connectionStatus?.reddit?.connected && !json.connectionStatus?.stackoverflow?.connected) {
           setSelectedPlatform('hackernews');
+        } else if (json.connectionStatus?.stackoverflow?.connected && !json.connectionStatus?.github?.connected && !json.connectionStatus?.reddit?.connected && !json.connectionStatus?.hackernews?.connected) {
+          setSelectedPlatform('stackoverflow');
         }
       }
     } catch (err) {
@@ -150,7 +153,7 @@ export default function RiskReportPage() {
 
   const handlePlatformAccount = async (action) => {
     const platform = selectedPlatform;
-    const label = platform === 'github' ? 'GitHub' : platform === 'reddit' ? 'Reddit' : 'Hacker News';
+    const label = platform === 'github' ? 'GitHub' : platform === 'reddit' ? 'Reddit' : platform === 'hackernews' ? 'Hacker News' : 'Stack Overflow';
     const username = action === 'disconnect' ? '' : window.prompt(`Enter new ${label} username`, connectionStatus?.[platform]?.username || '');
     if (action === 'update_platform' && !username?.trim()) return;
     const res = await fetch('/api/auth', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action, platform, username: username?.trim() || '' }) });
@@ -232,8 +235,8 @@ export default function RiskReportPage() {
     );
   }
 
-  const { user, connectionStatus, githubAudit, redditAudit, hackernewsAudit } = data;
-  const currentAudit = selectedPlatform === 'github' ? (githubAudit || {}) : selectedPlatform === 'hackernews' ? (hackernewsAudit || {}) : (redditAudit || {});
+  const { user, connectionStatus, githubAudit, redditAudit, hackernewsAudit, stackoverflowAudit, identityLinks = [] } = data;
+  const currentAudit = selectedPlatform === 'github' ? (githubAudit || {}) : selectedPlatform === 'hackernews' ? (hackernewsAudit || {}) : selectedPlatform === 'stackoverflow' ? (stackoverflowAudit || {}) : (redditAudit || {});
   const isPlatformConnected = Boolean(connectionStatus?.[selectedPlatform]?.connected);
   const exposureLevel = currentAudit.exposureLevel || (
     !isPlatformConnected ? null : currentAudit.score >= 80 ? 'High' : currentAudit.score >= 50 ? 'Moderate' : 'Low'
@@ -245,7 +248,7 @@ export default function RiskReportPage() {
       : 0);
   const activeAvatar = user.avatar_url || (user.reddit_username ? 'https://www.redditstatic.com/avatars/defaults/v2/avatar_default_1.png' : user.github_username ? `https://github.com/${user.github_username}.png` : 'https://www.redditstatic.com/avatars/defaults/v2/avatar_default_1.png');
 
-  if (!isPlatformConnected && !connectionStatus?.github?.connected && !connectionStatus?.reddit?.connected && !connectionStatus?.hackernews?.connected) {
+  if (!isPlatformConnected && !connectionStatus?.github?.connected && !connectionStatus?.reddit?.connected && !connectionStatus?.hackernews?.connected && !connectionStatus?.stackoverflow?.connected) {
     return (
       <div className="min-h-screen bg-slate-50 text-slate-900 pt-20"><Navbar /><main className="max-w-3xl mx-auto px-4 py-20 text-center">
         <div className="bg-white border border-slate-200 rounded-3xl p-10 shadow-sm"><UserCheck className="w-12 h-12 text-brand-orange mx-auto mb-4" /><h1 className="text-2xl font-extrabold">No platform connected</h1><p className="text-sm text-slate-500 mt-2">Connect Reddit or GitHub, or add a Hacker News username to start an audit.</p><a href="/login" className="inline-flex mt-6 px-6 py-3 rounded-full bg-brand-orange text-white font-extrabold text-sm">Open Profile</a></div>
@@ -375,6 +378,14 @@ export default function RiskReportPage() {
               <span>Hacker News</span>
               {connectionStatus?.hackernews?.connected && <span className="text-xs font-mono px-2 py-0.5 rounded-full bg-orange-700 text-white">{connectionStatus.hackernews.username}</span>}
             </button>
+            <button
+              onClick={() => setSelectedPlatform('stackoverflow')}
+              className={`shrink-0 px-4 sm:px-8 py-3.5 rounded-full text-sm font-extrabold transition-all flex items-center gap-2.5 cursor-pointer ${selectedPlatform === 'stackoverflow' ? 'bg-amber-700 text-white shadow-md' : 'text-slate-700 hover:text-slate-900'}`}
+            >
+              <span className="w-5 h-5 rounded bg-amber-600 text-white text-[10px] font-black flex items-center justify-center">SO</span>
+              <span>Stack Overflow</span>
+              {connectionStatus?.stackoverflow?.connected && <span className="text-xs font-mono px-2 py-0.5 rounded-full bg-amber-800 text-white">{connectionStatus.stackoverflow.username}</span>}
+            </button>
           </div>
         </div>
 
@@ -403,6 +414,18 @@ export default function RiskReportPage() {
             <form onSubmit={(event) => { event.preventDefault(); if (hackerNewsHandle.trim()) fetchAuditData(false, hackerNewsHandle); }} className="flex max-w-md mx-auto mt-5 gap-2">
               <input value={hackerNewsHandle} onChange={(event) => setHackerNewsHandle(event.target.value)} placeholder="e.g. dang" className="flex-1 rounded-full px-4 py-3 text-sm text-slate-900 bg-white border-2 border-orange-200 placeholder-slate-400 focus:outline-none focus:border-orange-500" />
               <button className="px-5 py-3 rounded-full bg-orange-500 text-white font-extrabold text-sm">Analyze</button>
+            </form>
+          </div>
+        )}
+
+        {selectedPlatform === 'stackoverflow' && !connectionStatus?.stackoverflow?.connected && (
+          <div className="bg-slate-900 rounded-3xl p-8 text-center shadow-lg">
+            <div className="w-10 h-10 rounded-xl bg-amber-600 text-white text-xs font-black flex items-center justify-center mx-auto mb-3">SO</div>
+            <h3 className="text-xl font-extrabold text-white">Add your Stack Overflow user ID</h3>
+            <p className="text-sm text-slate-300 mt-2">Use the numeric ID from your Stack Overflow profile URL. No password or OAuth is required.</p>
+            <form onSubmit={(event) => { event.preventDefault(); if (stackoverflowHandle.trim()) fetchAuditData(false, stackoverflowHandle); }} className="flex max-w-md mx-auto mt-5 gap-2">
+              <input value={stackoverflowHandle} onChange={(event) => setStackoverflowHandle(event.target.value)} placeholder="e.g. 1234567 or profile URL" className="flex-1 rounded-full px-4 py-3 text-sm text-slate-900 bg-white border-2 border-amber-200 placeholder-slate-400 focus:outline-none focus:border-amber-500" />
+              <button className="px-5 py-3 rounded-full bg-amber-600 text-white font-extrabold text-sm">Analyze</button>
             </form>
           </div>
         )}
@@ -506,6 +529,16 @@ export default function RiskReportPage() {
                   )}
                 </div>
               </div>
+            ) : selectedPlatform === 'stackoverflow' ? (
+              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
+                <div className="flex items-center gap-2 text-brand-orange font-mono font-bold text-xs uppercase tracking-wider mb-2">
+                  <Activity className="w-4 h-4" />
+                  Stack Overflow Topics
+                </div>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {(currentAudit.tags || []).length > 0 ? currentAudit.tags.map((tag, idx) => <span key={idx} className="bg-amber-50 border border-amber-200 text-amber-800 px-3 py-1 rounded-full text-xs font-bold font-mono">{tag}</span>) : <span className="text-xs text-slate-500 italic">No public tags found</span>}
+                </div>
+              </div>
             ) : selectedPlatform === 'hackernews' && currentAudit.itemCount === 0 ? (
               <div className="md:col-span-2 bg-slate-50 border border-slate-200 rounded-2xl p-8 text-center">
                 <h4 className="text-lg font-extrabold text-slate-900">No public Hacker News activity found</h4>
@@ -538,7 +571,7 @@ export default function RiskReportPage() {
                 Revealed Identity / Email
               </div>
               <div className="text-base font-extrabold text-slate-900 mt-1 font-mono">
-                {(selectedPlatform === 'github' ? currentAudit.email : currentAudit.revealedEmail) || 'None Disclosed'}
+                {(selectedPlatform === 'github' ? currentAudit.email : selectedPlatform === 'stackoverflow' ? (currentAudit.profile?.about_me || '') : currentAudit.revealedEmail) || 'None Disclosed'}
               </div>
               <p className="text-xs text-slate-500 mt-2 font-medium">
                 {selectedPlatform === 'github' ? 'Public email listed in profile or commit log' : 'Obfuscated or plain-text email extracted from comments'}.
@@ -559,6 +592,9 @@ export default function RiskReportPage() {
                 Deterministic findings extracted strictly from {selectedPlatform === 'github' ? 'GitHub profile metadata and repos' : selectedPlatform === 'hackernews' ? 'Hacker News public stories and comments' : 'Reddit comment text and subreddits'}.
               </p>
               {selectedPlatform === 'hackernews' && currentAudit.activitySummary && (
+                <p className="text-slate-500 text-xs mt-2 font-mono">{currentAudit.activitySummary}</p>
+              )}
+              {selectedPlatform === 'reddit' && currentAudit.activitySummary && (
                 <p className="text-slate-500 text-xs mt-2 font-mono">{currentAudit.activitySummary}</p>
               )}
             </div>
@@ -606,6 +642,24 @@ export default function RiskReportPage() {
                         </button>
                       </div>
                     )}
+                    {finding.evidenceItems?.length > 0 && (
+                      <details className="mt-3 rounded-xl border border-orange-200 bg-orange-50/50">
+                        <summary className="cursor-pointer px-3.5 py-2.5 text-xs font-bold text-orange-800">
+                          View all proofs ({finding.evidenceItems.length}{finding.evidenceCount > finding.evidenceItems.length ? ` of ${finding.evidenceCount}` : ''})
+                        </summary>
+                        <div className="px-3.5 pb-3 space-y-2">
+                          {finding.evidenceItems.map((proof, proofIndex) => (
+                            <div key={`${proof.url || 'proof'}-${proofIndex}`} className="rounded-lg bg-white border border-orange-100 p-3 text-xs">
+                              <p className="text-slate-700 font-mono break-words">{proof.snippet}</p>
+                              <div className="flex items-center justify-between gap-2 mt-2">
+                                <span className="text-slate-500">{proof.source}</span>
+                                {proof.url && <a href={proof.url} target="_blank" rel="noopener noreferrer" className="text-orange-700 font-bold hover:underline">Open proof</a>}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </details>
+                    )}
                   </div>
 
                   <div className="mt-4 pt-3 border-t border-slate-200/60 flex items-center justify-between">
@@ -637,6 +691,32 @@ export default function RiskReportPage() {
             )}
           </div>
         </div>
+
+        {identityLinks.length > 0 && (
+          <div className="bg-white border border-orange-200 rounded-3xl p-6 sm:p-8 shadow-sm">
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <h3 className="text-2xl font-extrabold text-slate-900">Cross-platform OSINT signals</h3>
+                <p className="text-sm text-slate-600 mt-1">Only evidence-backed links found across the connected public profiles.</p>
+              </div>
+              <span className="px-3 py-1 rounded-full bg-orange-50 text-orange-700 border border-orange-200 text-xs font-black">{identityLinks.length} signal{identityLinks.length === 1 ? '' : 's'}</span>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-5">
+              {identityLinks.map((link, index) => (
+                <div key={`${link.signal}-${index}`} className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                  <div className="flex items-center justify-between gap-3">
+                    <span className="text-xs font-mono font-black uppercase text-orange-700">{link.confidence} confidence</span>
+                    <span className="text-xs text-slate-500">{link.source_a} → {link.source_b}</span>
+                  </div>
+                  <h4 className="font-extrabold text-slate-900 mt-2">{link.signal}</h4>
+                  <p className="text-sm text-slate-700 mt-2">{link.evidence}</p>
+                  {link.supporting_signals?.length > 0 && <p className="text-xs text-slate-500 mt-3">Signals: {link.supporting_signals.join(' · ')}</p>}
+                  {link.evidence_url && <a href={link.evidence_url} target="_blank" rel="noopener noreferrer" className="inline-flex mt-3 text-xs font-bold text-orange-700 hover:underline">View evidence <ExternalLink className="w-3 h-3 ml-1" /></a>}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </main>
 
       {/* --- AI SANITIZER POPUP MODAL --- */}

@@ -28,7 +28,7 @@ export async function GET(request) {
     if (!profileRes.ok) throw new Error('Failed to fetch GitHub profile');
     const profile = await profileRes.json();
     const current = getCurrentUser();
-    const linkedUser = updateUserHandles(current?.id || 'usr_current', profile.login, current?.reddit_username || '', current?.hackernews_username || '');
+    const linkedUser = updateUserHandles(current?.id || 'usr_current', profile.login, current?.reddit_username || '', current?.hackernews_username || '', current?.stackoverflow_username || '');
     setGithubOAuthConnected(linkedUser.id, true);
     return NextResponse.redirect(new URL(returnTo, request.url));
   } catch (err) {

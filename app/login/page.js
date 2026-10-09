@@ -15,6 +15,7 @@ function LoginContent() {
   const [githubUsername, setGithubUsername] = useState('');
   const [redditUsername, setRedditUsername] = useState('');
   const [hackernewsUsername, setHackernewsUsername] = useState('');
+  const [stackoverflowUsername, setStackoverflowUsername] = useState('');
   const [authenticated, setAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -30,6 +31,7 @@ function LoginContent() {
         setGithubUsername(data.user.github_username || '');
         setRedditUsername(data.user.reddit_username || '');
         setHackernewsUsername(data.user.hackernews_username || '');
+        setStackoverflowUsername(data.user.stackoverflow_username || '');
       } else {
         setUser(null);
       }
@@ -44,7 +46,7 @@ function LoginContent() {
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
-    if (!githubUsername.trim() && !redditUsername.trim() && !hackernewsUsername.trim()) {
+    if (!githubUsername.trim() && !redditUsername.trim() && !hackernewsUsername.trim() && !stackoverflowUsername.trim()) {
       setError('Please enter a Reddit or GitHub handle.');
       return;
     }
@@ -59,6 +61,7 @@ function LoginContent() {
           github_username: githubUsername.trim(),
           reddit_username: redditUsername.trim()
           ,hackernews_username: hackernewsUsername.trim()
+          ,stackoverflow_username: stackoverflowUsername.trim()
         })
       });
       const data = await res.json();

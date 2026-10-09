@@ -31,6 +31,7 @@ def generate_html_report(data_json_path, output_path):
     reddit_audit = data.get('redditAudit', {})
     github_audit = data.get('githubAudit', {})
     hackernews_audit = data.get('hackernewsAudit', {})
+    stackoverflow_audit = data.get('stackoverflowAudit', {})
     conn = data.get('connectionStatus', {})
 
     username = user.get('reddit_username') or user.get('github_username') or user.get('name') or 'Anonymous User'
@@ -40,8 +41,9 @@ def generate_html_report(data_json_path, output_path):
     r_score = reddit_audit.get('score', 0) if conn.get('reddit', {}).get('connected') else None
     g_score = github_audit.get('score', 0) if conn.get('github', {}).get('connected') else None
     h_score = hackernews_audit.get('score', 0) if conn.get('hackernews', {}).get('connected') else None
+    so_score = stackoverflow_audit.get('score', 0) if conn.get('stackoverflow', {}).get('connected') else None
     
-    scores = [s for s in [r_score, g_score, h_score] if s is not None]
+    scores = [s for s in [r_score, g_score, h_score, so_score] if s is not None]
     overall_score = round(sum(scores) / len(scores)) if scores else 50
     risk_level = "CRITICAL RISK" if overall_score >= 80 else "MODERATE RISK" if overall_score >= 50 else "LOW RISK"
     risk_color = "#e11d48" if overall_score >= 80 else "#f59e0b" if overall_score >= 50 else "#10b981"
@@ -59,6 +61,10 @@ def generate_html_report(data_json_path, output_path):
     if conn.get('hackernews', {}).get('connected'):
         for f in hackernews_audit.get('findings', []):
             f['platform_tag'] = 'Hacker News'
+            all_findings.append(f)
+    if conn.get('stackoverflow', {}).get('connected'):
+        for f in stackoverflow_audit.get('findings', []):
+            f['platform_tag'] = 'Stack Overflow'
             all_findings.append(f)
 
     findings_html = ""
@@ -463,7 +469,7 @@ def generate_html_report(data_json_path, output_path):
         <div class="score-banner">
             <div class="user-info">
                 <h2>{user.get('name', username)}</h2>
-                <p>Reddit: {f"u/{user.get('reddit_username')}" if user.get('reddit_username') else 'None linked'} | GitHub: {f"@{user.get('github_username')}" if user.get('github_username') else 'None linked'} | Hacker News: {user.get('hackernews_username') or 'None linked'}</p>
+                <p>Reddit: {f"u/{user.get('reddit_username')}" if user.get('reddit_username') else 'None linked'} | GitHub: {f"@{user.get('github_username')}" if user.get('github_username') else 'None linked'} | Hacker News: {user.get('hackernews_username') or 'None linked'} | Stack Overflow: {user.get('stackoverflow_username') or 'None linked'}</p>
             </div>
             <div class="stat-card">
                 <div class="stat-val" style="color: {risk_color};">{overall_score} / 100</div>
