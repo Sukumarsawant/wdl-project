@@ -94,6 +94,8 @@ export default function RiskReportPage() {
           setSelectedPlatform('reddit');
         } else if (json.connectionStatus?.github?.connected && !json.connectionStatus?.reddit?.connected) {
           setSelectedPlatform('github');
+        } else if (json.connectionStatus?.hackernews?.connected && !json.connectionStatus?.github?.connected && !json.connectionStatus?.reddit?.connected) {
+          setSelectedPlatform('hackernews');
         }
       }
     } catch (err) {
@@ -241,7 +243,15 @@ export default function RiskReportPage() {
     : (currentAudit.findings?.length
       ? Math.round(currentAudit.findings.reduce((sum, finding) => sum + getFindingConfidence(finding), 0) / currentAudit.findings.length)
       : 0);
-  const activeAvatar = user.avatar_url || (user.reddit_username ? 'https://www.redditstatic.com/avatars/defaults/v2/avatar_default_1.png' : `https://github.com/${user.github_username}.png`);
+  const activeAvatar = user.avatar_url || (user.reddit_username ? 'https://www.redditstatic.com/avatars/defaults/v2/avatar_default_1.png' : user.github_username ? `https://github.com/${user.github_username}.png` : 'https://www.redditstatic.com/avatars/defaults/v2/avatar_default_1.png');
+
+  if (!isPlatformConnected && !connectionStatus?.github?.connected && !connectionStatus?.reddit?.connected && !connectionStatus?.hackernews?.connected) {
+    return (
+      <div className="min-h-screen bg-slate-50 text-slate-900 pt-20"><Navbar /><main className="max-w-3xl mx-auto px-4 py-20 text-center">
+        <div className="bg-white border border-slate-200 rounded-3xl p-10 shadow-sm"><UserCheck className="w-12 h-12 text-brand-orange mx-auto mb-4" /><h1 className="text-2xl font-extrabold">No platform connected</h1><p className="text-sm text-slate-500 mt-2">Connect Reddit or GitHub, or add a Hacker News username to start an audit.</p><a href="/login" className="inline-flex mt-6 px-6 py-3 rounded-full bg-brand-orange text-white font-extrabold text-sm">Open Profile</a></div>
+      </main><Footer /></div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 pt-20 selection:bg-brand-orange/20 selection:text-brand-orange">
@@ -391,7 +401,7 @@ export default function RiskReportPage() {
             <h3 className="text-xl font-extrabold text-white">Add your Hacker News username</h3>
             <p className="text-sm text-slate-300 mt-2">Hacker News uses public profile data, so no password or OAuth is required.</p>
             <form onSubmit={(event) => { event.preventDefault(); if (hackerNewsHandle.trim()) fetchAuditData(false, hackerNewsHandle); }} className="flex max-w-md mx-auto mt-5 gap-2">
-              <input value={hackerNewsHandle} onChange={(event) => setHackerNewsHandle(event.target.value)} placeholder="e.g. dang" className="flex-1 rounded-full px-4 py-3 text-sm text-slate-900" />
+              <input value={hackerNewsHandle} onChange={(event) => setHackerNewsHandle(event.target.value)} placeholder="e.g. dang" className="flex-1 rounded-full px-4 py-3 text-sm text-slate-900 bg-white border-2 border-orange-200 placeholder-slate-400 focus:outline-none focus:border-orange-500" />
               <button className="px-5 py-3 rounded-full bg-orange-500 text-white font-extrabold text-sm">Analyze</button>
             </form>
           </div>

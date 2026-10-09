@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getCurrentUser, updateUserHandles } from '@/lib/db.js';
+import { getCurrentUser, updateUserHandles, setGithubOAuthConnected } from '@/lib/db.js';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -28,7 +28,8 @@ export async function GET(request) {
     if (!profileRes.ok) throw new Error('Failed to fetch GitHub profile');
     const profile = await profileRes.json();
     const current = getCurrentUser();
-    updateUserHandles(current?.id || 'usr_current', profile.login, current?.reddit_username || '');
+    const linkedUser = updateUserHandles(current?.id || 'usr_current', profile.login, current?.reddit_username || '', current?.hackernews_username || '');
+    setGithubOAuthConnected(linkedUser.id, true);
     return NextResponse.redirect(new URL(returnTo, request.url));
   } catch (err) {
     return NextResponse.redirect(new URL(`/login?error=${encodeURIComponent(err.message)}`, request.url));

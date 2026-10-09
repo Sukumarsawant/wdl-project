@@ -36,7 +36,7 @@ export async function GET(request) {
     }, { status: 401 });
   }
 
-  const ghUsername = user.github_username;
+  const ghUsername = user.github_oauth_connected ? user.github_username : '';
   const rdUsername = user.reddit_username;
   const hnUsername = user.hackernews_username;
 

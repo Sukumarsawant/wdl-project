@@ -5,9 +5,10 @@ export const dynamic = 'force-dynamic';
 
 export async function GET(request) {
   const user = getCurrentUser();
+  const visibleUser = user ? { ...user, github_username: user.github_oauth_connected ? user.github_username : '' } : null;
   return Response.json({
-    authenticated: Boolean(user),
-    user: user || null
+    authenticated: Boolean(visibleUser),
+    user: visibleUser
   });
 }
 
@@ -38,6 +39,10 @@ export async function POST(request) {
       };
       handles[platform] = value;
       const user = updateUserHandles(current.id, handles.github, handles.reddit, handles.hackernews);
+      if (platform === 'github' && action === 'disconnect') {
+        const { setGithubOAuthConnected } = await import('@/lib/db.js');
+        setGithubOAuthConnected(user.id, false);
+      }
       return Response.json({ success: true, authenticated: true, user });
     }
 

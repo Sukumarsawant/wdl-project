@@ -135,14 +135,14 @@ export default function Navbar() {
             {user ? (
               <div className="flex items-center gap-2">
                 <a
-                  href={user.reddit_username ? `https://reddit.com/user/${user.reddit_username}` : `https://github.com/${user.github_username}`}
+                  href={user.reddit_username ? `https://reddit.com/user/${user.reddit_username}` : user.github_username ? `https://github.com/${user.github_username}` : user.hackernews_username ? `https://news.ycombinator.com/user?id=${user.hackernews_username}` : '/login'}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`text-xs font-mono font-bold px-3 py-1.5 rounded-full border hidden sm:inline-flex items-center gap-1.5 hover:underline ${
                     isScrolledStyle ? 'bg-orange-50 text-orange-700 border-orange-200' : 'bg-darkorange-900 text-orange-300 border-orange-800'
                   }`}
                 >
-                  {user.reddit_username ? `u/${user.reddit_username}` : `@${user.github_username}`}
+                  {user.reddit_username ? `u/${user.reddit_username}` : user.github_username ? `@${user.github_username}` : user.hackernews_username ? `@${user.hackernews_username}` : 'Profile'}
                 </a>
 
                 <button

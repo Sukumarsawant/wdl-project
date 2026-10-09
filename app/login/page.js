@@ -112,10 +112,10 @@ function LoginContent() {
             </div>
 
             <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-              {authenticated && user ? 'Linked Account Settings' : 'Sign In with Reddit'}
+              {authenticated && user ? 'Profile & Account Connections' : 'Connect Your Profile'}
             </h1>
             <p className="text-slate-600 text-sm mt-2 font-medium">
-              Authenticate via Reddit to prove ownership before self-auditing your exposure.
+              Connect Reddit, GitHub, or add a public Hacker News username before running a self-audit.
             </p>
           </div>
 
@@ -181,6 +181,14 @@ function LoginContent() {
                   <path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.562-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.688-.562-1.249-1.25-1.249zm-4.566 3.868a.333.333 0 0 0-.04.468c.558.647 1.416 1.053 2.356 1.053.94 0 1.798-.406 2.356-1.053a.333.333 0 1 0-.505-.434c-.443.513-1.127.837-1.851.837-.724 0-1.408-.324-1.851-.837a.333.333 0 0 0-.465-.034z"/>
                 </svg>
                 <span className="font-extrabold text-base">Sign in with Reddit</span>
+              </a>
+
+              <a
+                href="/api/auth/github?returnTo=%2Frisk-report"
+                className="w-full bg-slate-900 hover:bg-slate-800 text-white font-extrabold py-4 px-6 rounded-2xl transition-all flex items-center justify-center gap-3 shadow-md hover:shadow-lg text-sm tracking-wide cursor-pointer"
+              >
+                <GithubIcon className="w-6 h-6 fill-current" />
+                <span className="font-extrabold text-base">Sign in with GitHub</span>
               </a>
 
               <div className="relative flex items-center justify-center">
