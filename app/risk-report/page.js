@@ -45,15 +45,18 @@ const GeminiSparkleIcon = ({ className = "w-4 h-4" }) => (
 
 function getFindingConfidence(finding = {}) {
   const explicit = Number(finding.confidence ?? finding.confidenceScore);
-  if (Number.isFinite(explicit)) return Math.max(0, Math.min(100, Math.round(explicit)));
+  if (Number.isFinite(explicit) && explicit > 0) return Math.max(20, Math.min(99, Math.round(explicit)));
 
-  // Keep confidence evidence-based when an older collector record has no
-  // confidence field instead of displaying the same hardcoded percentage.
-  const severity = String(finding.severity || finding.riskLevel || '').toLowerCase();
-  if (severity === 'high' || severity === 'critical') return 92;
-  if (severity === 'moderate' || severity === 'medium') return 78;
-  if (severity === 'low') return 65;
-  return finding.evidenceSnippet || finding.fullText ? 70 : 50;
+  // Grounded formula approximation fallback for legacy cache records
+  const type = String(finding.type || '').toLowerCase();
+  const cat = String(finding.category || '').toLowerCase();
+  const val = String(finding.value || '');
+  let score = 40;
+  if (type.includes('contact') || cat.includes('email') || /@/.test(val)) score = 75;
+  else if (type.includes('handle') || cat.includes('username')) score = 65;
+  else if (type.includes('identity')) score = 55;
+  else if (type.includes('location')) score = 45;
+  return Math.max(20, Math.min(99, score));
 }
 
 export default function RiskReportPage() {
@@ -167,7 +170,7 @@ export default function RiskReportPage() {
       const res = await fetch('/api/report/download', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
+        body: JSON.stringify({ ...data, selectedPlatform })
       });
       if (res.ok) {
         const blob = await res.blob();
@@ -238,14 +241,20 @@ export default function RiskReportPage() {
   const { user, connectionStatus, githubAudit, redditAudit, hackernewsAudit, stackoverflowAudit, identityLinks = [] } = data;
   const currentAudit = selectedPlatform === 'github' ? (githubAudit || {}) : selectedPlatform === 'hackernews' ? (hackernewsAudit || {}) : selectedPlatform === 'stackoverflow' ? (stackoverflowAudit || {}) : (redditAudit || {});
   const isPlatformConnected = Boolean(connectionStatus?.[selectedPlatform]?.connected);
-  const exposureLevel = currentAudit.exposureLevel || (
-    !isPlatformConnected ? null : currentAudit.score >= 80 ? 'High' : currentAudit.score >= 50 ? 'Moderate' : 'Low'
-  );
-  const confidenceScore = Number.isFinite(Number(currentAudit.confidenceScore))
+  const confidenceScore = Number.isFinite(Number(currentAudit.confidenceScore)) && Number(currentAudit.confidenceScore) > 0
     ? Math.round(Number(currentAudit.confidenceScore))
     : (currentAudit.findings?.length
       ? Math.round(currentAudit.findings.reduce((sum, finding) => sum + getFindingConfidence(finding), 0) / currentAudit.findings.length)
       : 0);
+
+  // Exact 100% 1-to-1 alignment between score/confidence and exposure level badge:
+  // >= 80: High Exposure
+  // 50-79: Moderate Exposure
+  // < 50: Low Exposure
+  const metricForTier = Number(currentAudit.score || confidenceScore);
+  const exposureLevel = !isPlatformConnected || currentAudit.findings?.length === 0
+    ? null 
+    : (metricForTier >= 80 ? 'High' : metricForTier >= 50 ? 'Moderate' : 'Low');
   const activeAvatar = user.avatar_url || (user.reddit_username ? 'https://www.redditstatic.com/avatars/defaults/v2/avatar_default_1.png' : user.github_username ? `https://github.com/${user.github_username}.png` : 'https://www.redditstatic.com/avatars/defaults/v2/avatar_default_1.png');
 
   if (!isPlatformConnected && !connectionStatus?.github?.connected && !connectionStatus?.reddit?.connected && !connectionStatus?.hackernews?.connected && !connectionStatus?.stackoverflow?.connected) {

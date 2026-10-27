@@ -1,811 +1,48 @@
 {
-  "users": [],
-  "github_data": [
+  "users": [
     {
-      "user_id": "usr_current",
-      "username": "Sukumarsawant",
-      "name": "Zorojuro",
-      "bio": "Computer Science 28' | GSoC 26' @llvm | Competitive programmer ",
-      "location": "",
-      "company": "",
-      "website": "",
+      "id": "usr_current",
+      "github_username": "",
+      "reddit_username": "Expensive-Trip-1972",
+      "hackernews_username": "dang",
+      "stackoverflow_username": "22656",
+      "name": "u/Expensive-Trip-1972",
       "email": "",
-      "commitEmails": [],
-      "commitAuthors": [],
-      "commitDates": [],
-      "organizations": [
-        "llvm"
-      ],
-      "profileReadme": "![](https://komarev.com/ghpvc/?username=sukumarsawant)\n\nSecond-year student at Mumbai University. I mainly code C/C++, and others are Python, Java, JavaScript, and backends. Mostly do competitive programming and exploring Compilers and computer arithmetics currently.\n\nCurrent work: GSoC 26' Contributor @LLVM\n<h3 align=\"left\">Connect with me:</h3>\n<p align=\"left\">\n<a href=\"https://x.com/18yearodd\"><img src=\"https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg\" height=\"30\"/></a>&nbsp;\n<a href=\"https://www.linkedin.com/in/sukumar-sawant\"><img src=\"https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg\" height=\"30\"/></a>&nbsp;\n<a href=\"https://www.codechef.com/users/sukumarsawant\"><img src=\"https://cdn.jsdelivr.net/npm/simple-icons@3.1.0/icons/codechef.svg\" height=\"30\"/></a>&nbsp;\n<a href=\"https://www.hackerrank.com/sukumar_sawant\"><img src=\"https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/hackerrank.svg\" height=\"30\"/></a>&nbsp;\n<a href=\"https://codeforces.com/profile/sawantsukumar\"><img src=\"https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/codeforces.svg\" height=\"30\"/></a>&nbsp;\n<a href=\"https://www.leetcode.com/sawantsukumar\"><img src=\"https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/leet-code.svg\" height=\"30\"/></a>&nbsp;\n<a href=\"https://discordapp.com/users/1167047110655483935\"><img src=\"https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/discord.svg\" height=\"30\"/></a>\n</p>\n\nsawantsukumar@gmail.com\n",
-      "repos": [
-        {
-          "name": "wdl-project",
-          "language": "JavaScript",
-          "description": "",
-          "html_url": "https://github.com/Sukumarsawant/wdl-project",
-          "stargazers_count": 0
-        },
-        {
-          "name": "dwm-project",
-          "language": "Python",
-          "description": "",
-          "html_url": "https://github.com/Sukumarsawant/dwm-project",
-          "stargazers_count": 0
-        },
-        {
-          "name": "sukumarsawant.github.io",
-          "language": "CSS",
-          "description": "",
-          "html_url": "https://github.com/Sukumarsawant/sukumarsawant.github.io",
-          "stargazers_count": 0
-        },
-        {
-          "name": "deanonymizer",
-          "language": "TypeScript",
-          "description": "Deanonymize anyone based on their public commenting or posting history & pattern.",
-          "html_url": "https://github.com/Sukumarsawant/deanonymizer",
-          "stargazers_count": 0
-        },
-        {
-          "name": "formal-conjectures",
-          "language": "Lean",
-          "description": "A collection of formalized statements of conjectures in Lean.",
-          "html_url": "https://github.com/Sukumarsawant/formal-conjectures",
-          "stargazers_count": 0
-        },
-        {
-          "name": "llvm-project",
-          "language": "LLVM",
-          "description": "The LLVM Project is a collection of modular and reusable compiler and toolchain technologies.",
-          "html_url": "https://github.com/Sukumarsawant/llvm-project",
-          "stargazers_count": 0
-        },
-        {
-          "name": "llvm-blog-www",
-          "language": "Unknown",
-          "description": "The LLVM Project Blog",
-          "html_url": "https://github.com/Sukumarsawant/llvm-blog-www",
-          "stargazers_count": 0
-        },
-        {
-          "name": "guard_checker",
-          "language": "Python",
-          "description": "This script helps in determining wrong guards, etc in a file",
-          "html_url": "https://github.com/Sukumarsawant/guard_checker",
-          "stargazers_count": 0
-        },
-        {
-          "name": "UniHack",
-          "language": "Unknown",
-          "description": "",
-          "html_url": "https://github.com/Sukumarsawant/UniHack",
-          "stargazers_count": 0
-        },
-        {
-          "name": "sargantana",
-          "language": "Unknown",
-          "description": "",
-          "html_url": "https://github.com/Sukumarsawant/sargantana",
-          "stargazers_count": 0
-        },
-        {
-          "name": "LLVM-Task",
-          "language": "LLVM",
-          "description": "",
-          "html_url": "https://github.com/Sukumarsawant/LLVM-Task",
-          "stargazers_count": 0
-        },
-        {
-          "name": "deanonymization-tool",
-          "language": "Unknown",
-          "description": "",
-          "html_url": "https://github.com/Sukumarsawant/deanonymization-tool",
-          "stargazers_count": 0
-        },
-        {
-          "name": "TCS-hack",
-          "language": "JavaScript",
-          "description": "",
-          "html_url": "https://github.com/Sukumarsawant/TCS-hack",
-          "stargazers_count": 0
-        },
-        {
-          "name": "f3d",
-          "language": "C++",
-          "description": "Fast and minimalist 3D viewer.",
-          "html_url": "https://github.com/Sukumarsawant/f3d",
-          "stargazers_count": 0
-        },
-        {
-          "name": "launchpad-braveUsers",
-          "language": "Unknown",
-          "description": "",
-          "html_url": "https://github.com/Sukumarsawant/launchpad-braveUsers",
-          "stargazers_count": 0
-        },
-        {
-          "name": "nanocoder",
-          "language": "Unknown",
-          "description": "An open coding agent for your terminal, built by a community collective rather than a company. Bring your own model, keep your code on your machine, and owe nothing to anyone.",
-          "html_url": "https://github.com/Sukumarsawant/nanocoder",
-          "stargazers_count": 0
-        },
-        {
-          "name": "themecp-frontend-v2",
-          "language": "Unknown",
-          "description": "",
-          "html_url": "https://github.com/Sukumarsawant/themecp-frontend-v2",
-          "stargazers_count": 0
-        },
-        {
-          "name": "supabase",
-          "language": "Unknown",
-          "description": "The Postgres development platform. Supabase gives you a dedicated Postgres database to build your web, mobile, and AI applications.",
-          "html_url": "https://github.com/Sukumarsawant/supabase",
-          "stargazers_count": 0
-        },
-        {
-          "name": "realtime",
-          "language": "Unknown",
-          "description": "Broadcast, Presence, and Postgres Changes via WebSockets",
-          "html_url": "https://github.com/Sukumarsawant/realtime",
-          "stargazers_count": 0
-        },
-        {
-          "name": "no-docker",
-          "language": "Unknown",
-          "description": "",
-          "html_url": "https://github.com/Sukumarsawant/no-docker",
-          "stargazers_count": 0
-        },
-        {
-          "name": "mozilla-vpn-client",
-          "language": "Unknown",
-          "description": "A fast, secure and easy to use VPN. Built by the makers of Firefox.",
-          "html_url": "https://github.com/Sukumarsawant/mozilla-vpn-client",
-          "stargazers_count": 0
-        },
-        {
-          "name": "Kuro-CLI-",
-          "language": "Python",
-          "description": "A CLI which converts natural language to terminal commands using NLP",
-          "html_url": "https://github.com/Sukumarsawant/Kuro-CLI-",
-          "stargazers_count": 3
-        },
-        {
-          "name": "Sukumarsawant",
-          "language": "Unknown",
-          "description": "",
-          "html_url": "https://github.com/Sukumarsawant/Sukumarsawant",
-          "stargazers_count": 0
-        },
-        {
-          "name": "ICPC-2026",
-          "language": "Unknown",
-          "description": "",
-          "html_url": "https://github.com/Sukumarsawant/ICPC-2026",
-          "stargazers_count": 0
-        },
-        {
-          "name": "OS",
-          "language": "C++",
-          "description": "",
-          "html_url": "https://github.com/Sukumarsawant/OS",
-          "stargazers_count": 1
-        },
-        {
-          "name": "sem4-Deadlock-simulation",
-          "language": "C++",
-          "description": "A Deadlock detection and avoidance simulator in cpp (for college project)",
-          "html_url": "https://github.com/Sukumarsawant/sem4-Deadlock-simulation",
-          "stargazers_count": 2
-        },
-        {
-          "name": "Drowned",
-          "language": "C++",
-          "description": "This is a mock implementation / support for float80 and float 128 ",
-          "html_url": "https://github.com/Sukumarsawant/Drowned",
-          "stargazers_count": 0
-        },
-        {
-          "name": "Variant_sudoku",
-          "language": "TypeScript",
-          "description": "A sudoku solver for special variants",
-          "html_url": "https://github.com/Sukumarsawant/Variant_sudoku",
-          "stargazers_count": 0
-        },
-        {
-          "name": "Proto-UI",
-          "language": "TypeScript",
-          "description": "A UI component generation solution that starts from the essence of interaction",
-          "html_url": "https://github.com/Sukumarsawant/Proto-UI",
-          "stargazers_count": 0
-        },
-        {
-          "name": "python_sem4",
-          "language": "Python",
-          "description": "",
-          "html_url": "https://github.com/Sukumarsawant/python_sem4",
-          "stargazers_count": 0
-        }
-      ],
-      "events": [
-        {
-          "type": "PushEvent",
-          "repo": "Sukumarsawant/wdl-project",
-          "created_at": "2026-10-09T11:16:04Z",
-          "comment": ""
-        },
-        {
-          "type": "CreateEvent",
-          "repo": "Sukumarsawant/wdl-project",
-          "created_at": "2026-10-09T11:05:12Z",
-          "comment": ""
-        },
-        {
-          "type": "CreateEvent",
-          "repo": "Sukumarsawant/dwm-project",
-          "created_at": "2026-10-09T10:29:47Z",
-          "comment": ""
-        },
-        {
-          "type": "PullRequestReviewCommentEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-10-08T13:58:00Z",
-          "comment": "missing entrypoint for llogbf128"
-        },
-        {
-          "type": "PullRequestReviewEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-10-08T13:59:23Z",
-          "comment": ""
-        },
-        {
-          "type": "PullRequestReviewEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-10-08T13:59:23Z",
-          "comment": ""
-        },
-        {
-          "type": "PullRequestReviewEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-10-06T17:58:26Z",
-          "comment": ""
-        },
-        {
-          "type": "PushEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-10-05T09:29:43Z",
-          "comment": ""
-        },
-        {
-          "type": "PushEvent",
-          "repo": "StarOne01/llvm-project",
-          "created_at": "2026-10-05T09:00:13Z",
-          "comment": ""
-        },
-        {
-          "type": "PushEvent",
-          "repo": "SwiftByte6/webwdl-front",
-          "created_at": "2026-10-05T19:26:31Z",
-          "comment": ""
-        },
-        {
-          "type": "MemberEvent",
-          "repo": "SwiftByte6/webwdl-front",
-          "created_at": "2026-10-05T19:23:31Z",
-          "comment": ""
-        },
-        {
-          "type": "IssuesEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-10-05T15:29:48Z",
-          "comment": "[libc] Modify Exponent decomposition functions to work with emulated Float128"
-        },
-        {
-          "type": "IssueCommentEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-10-05T15:29:43Z",
-          "comment": "unassigning this due to inactivity\ncc: @Hari-Shankar-Karthik (feel free to reply to this or ping if you want to work on this until its assigned to someone else in the duration )"
-        },
-        {
-          "type": "PullRequestReviewEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-10-05T15:21:09Z",
-          "comment": ""
-        },
-        {
-          "type": "PullRequestReviewEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-10-05T13:38:52Z",
-          "comment": ""
-        },
-        {
-          "type": "PullRequestReviewEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-10-05T13:19:57Z",
-          "comment": ""
-        },
-        {
-          "type": "PullRequestReviewEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-10-05T13:19:56Z",
-          "comment": ""
-        },
-        {
-          "type": "PullRequestReviewCommentEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-10-05T13:15:16Z",
-          "comment": "```suggestion\n// where -log2(r) is obtained from the lookup table LOG2_R_FF_32 with\n```\nminor nit"
-        },
-        {
-          "type": "PullRequestReviewCommentEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-10-05T13:10:18Z",
-          "comment": "```suggestion\n  using FPBits = fputil::FPBits<float>;\n```\nnot really needed, just looks consistent"
-        },
-        {
-          "type": "IssueCommentEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-10-05T12:50:43Z",
-          "comment": "@StarOne01 Can you point me to the diverging one? Since I checked the file and the changes seems cleanly merged ? \r\n"
-        },
-        {
-          "type": "IssueCommentEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-10-05T12:42:37Z",
-          "comment": "> @Sukumarsawant thanks for the merge!\r\n> \r\n> When you merged #227619, this changes had conflict since both change the same files and have diverging changes.\r\n\r\n~~Thanks for catching that . The merging is behaving strange somehow , this should have been blocked before merging, Can you add a small PR to fix this and ping me if possible ?~~"
-        },
-        {
-          "type": "PullRequestReviewEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-10-05T12:39:16Z",
-          "comment": ""
-        },
-        {
-          "type": "IssueCommentEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-10-05T12:36:01Z",
-          "comment": "Can you also handle the `bf16<func>f` type ones in this ? Since I planned to get them under float "
-        },
-        {
-          "type": "PullRequestReviewEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-10-05T12:27:42Z",
-          "comment": ""
-        },
-        {
-          "type": "PushEvent",
-          "repo": "Popie52/llvm-project",
-          "created_at": "2026-10-05T12:18:06Z",
-          "comment": ""
-        },
-        {
-          "type": "PullRequestReviewEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-10-05T09:19:30Z",
-          "comment": ""
-        },
-        {
-          "type": "PushEvent",
-          "repo": "StarOne01/llvm-project",
-          "created_at": "2026-10-05T09:14:51Z",
-          "comment": ""
-        },
-        {
-          "type": "PushEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-10-05T09:13:37Z",
-          "comment": ""
-        },
-        {
-          "type": "IssueCommentEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-10-05T09:04:59Z",
-          "comment": "seems like the github merge wasn't working for this ( or for any recently , strange ); updating it hopefully resolves this ."
-        },
-        {
-          "type": "PushEvent",
-          "repo": "s4chinjha/llvm-project",
-          "created_at": "2026-10-03T16:02:39Z",
-          "comment": ""
-        },
-        {
-          "type": "PushEvent",
-          "repo": "s4chinjha/llvm-project",
-          "created_at": "2026-10-03T16:04:58Z",
-          "comment": ""
-        },
-        {
-          "type": "PullRequestReviewEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-10-03T16:11:51Z",
-          "comment": ""
-        },
-        {
-          "type": "PullRequestReviewCommentEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-10-03T16:11:43Z",
-          "comment": "seems like this missed some functions , check the TODO's"
-        },
-        {
-          "type": "PushEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-10-03T16:09:58Z",
-          "comment": ""
-        },
-        {
-          "type": "IssueCommentEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-10-03T16:07:38Z",
-          "comment": "yes, seems like we just had to update the PR for that to reflect ."
-        },
-        {
-          "type": "IssueCommentEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-10-03T15:51:34Z",
-          "comment": "> ⚠️ We detected that you are using a GitHub private e-mail address to contribute to the repo. Please turn off [Keep my email addresses private](https://github.com/settings/emails) setting in your account. See [LLVM Developer Policy](https://llvm.org/docs/DeveloperPolicy.html#email-addresses) and [LLVM Discourse](https://discourse.llvm.org/t/hidden-emails-on-github-should-we-do-something-about-it) for more information.\r\n\r\nsame issue can you resolve this ?\r\n@s4chinjha "
-        },
-        {
-          "type": "PullRequestReviewEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-10-03T15:50:44Z",
-          "comment": ""
-        },
-        {
-          "type": "IssueCommentEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-10-03T15:49:06Z",
-          "comment": "> [@Sukumarsawant](https://github.com/Sukumarsawant) i've raised 2 prs could you take a look at them when you get some time?\n\nonly 2 are required for this ?"
-        },
-        {
-          "type": "IssuesEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-10-03T15:47:03Z",
-          "comment": "[libc][math] Add  float-only versions for `inv_trigf_utils.h`"
-        },
-        {
-          "type": "IssueCommentEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-10-03T15:46:57Z",
-          "comment": "sure, assigned . "
-        },
-        {
-          "type": "IssueCommentEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-10-03T15:45:51Z",
-          "comment": "> ⚠️ We detected that you are using a GitHub private e-mail address to contribute to the repo. Please turn off [Keep my email addresses private](https://github.com/settings/emails) setting in your account. See [LLVM Developer Policy](https://llvm.org/docs/DeveloperPolicy.html#email-addresses) and [LLVM Discourse](https://discourse.llvm.org/t/hidden-emails-on-github-should-we-do-something-about-it) for more information.\r\n\r\n@s4chinjha I think this is somehow repeated. avoid changing this setting "
-        },
-        {
-          "type": "PullRequestReviewEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-10-03T15:41:29Z",
-          "comment": ""
-        },
-        {
-          "type": "IssueCommentEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-30T15:24:42Z",
-          "comment": "> @Sukumarsawant could you please take a look? thanks!\r\n\r\ncheck CI failures "
-        },
-        {
-          "type": "IssueCommentEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-30T14:38:24Z",
-          "comment": "run `git clang-format` for formatting failures"
-        },
-        {
-          "type": "PullRequestReviewEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-30T14:37:35Z",
-          "comment": ""
-        },
-        {
-          "type": "PullRequestReviewCommentEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-30T14:35:19Z",
-          "comment": "isn't included in utils file"
-        },
-        {
-          "type": "PullRequestReviewCommentEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-30T14:34:49Z",
-          "comment": "try to keep 1:1 depency with the test file"
-        },
-        {
-          "type": "PullRequestReviewCommentEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-30T14:31:28Z",
-          "comment": "```suggestion\n      libc.src.__support.math.sinhbf16\n```"
-        },
-        {
-          "type": "PullRequestReviewCommentEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-30T14:31:13Z",
-          "comment": "You don't need to add this for bf16 functions"
-        },
-        {
-          "type": "PullRequestReviewEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-30T14:32:10Z",
-          "comment": ""
-        },
-        {
-          "type": "CreateEvent",
-          "repo": "Sukumarsawant/sukumarsawant.github.io",
-          "created_at": "2026-09-28T19:43:34Z",
-          "comment": ""
-        },
-        {
-          "type": "CreateEvent",
-          "repo": "Sukumarsawant/sukumarsawant.github.io",
-          "created_at": "2026-09-28T19:43:31Z",
-          "comment": ""
-        },
-        {
-          "type": "DeleteEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-25T15:45:02Z",
-          "comment": ""
-        },
-        {
-          "type": "PushEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-25T15:45:00Z",
-          "comment": ""
-        },
-        {
-          "type": "PullRequestEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-25T15:44:58Z",
-          "comment": ""
-        },
-        {
-          "type": "PullRequestReviewEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-25T15:32:30Z",
-          "comment": ""
-        },
-        {
-          "type": "PullRequestReviewEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-25T15:32:28Z",
-          "comment": ""
-        },
-        {
-          "type": "PullRequestReviewCommentEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-25T15:31:33Z",
-          "comment": "There's a separate Todo for dfmal and dmull"
-        },
-        {
-          "type": "PullRequestReviewCommentEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-25T15:30:31Z",
-          "comment": "```suggestion\nmath_mpfr_test(\n    name = \"fmaxl\",\n    hdrs = [\"FMaxTest.h\"],\n)\n\nmath_mpfr_test(\n    name = \"fminl\",\n    hdrs = [\"FMinTest.h\"],\n)\n```"
-        },
-        {
-          "type": "PullRequestReviewEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-25T15:16:23Z",
-          "comment": ""
-        },
-        {
-          "type": "PullRequestReviewCommentEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-25T15:14:44Z",
-          "comment": "```suggestion\n# TODO: Add fmal tests. Missing stdlib/rand dependency.\n```"
-        },
-        {
-          "type": "PullRequestReviewEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-25T14:54:08Z",
-          "comment": ""
-        },
-        {
-          "type": "PushEvent",
-          "repo": "Sukumarsawant/sukumarsawant.github.io",
-          "created_at": "2026-09-22T14:16:07Z",
-          "comment": ""
-        },
-        {
-          "type": "PullRequestReviewEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-22T13:46:01Z",
-          "comment": ""
-        },
-        {
-          "type": "PushEvent",
-          "repo": "Sukumarsawant/sukumarsawant.github.io",
-          "created_at": "2026-09-22T05:07:56Z",
-          "comment": ""
-        },
-        {
-          "type": "CreateEvent",
-          "repo": "Sukumarsawant/sukumarsawant.github.io",
-          "created_at": "2026-09-22T05:04:01Z",
-          "comment": ""
-        },
-        {
-          "type": "PullRequestReviewEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-22T04:34:51Z",
-          "comment": ""
-        },
-        {
-          "type": "PullRequestReviewEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-22T04:34:49Z",
-          "comment": ""
-        },
-        {
-          "type": "PullRequestReviewCommentEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-22T04:32:47Z",
-          "comment": "same "
-        },
-        {
-          "type": "PullRequestReviewCommentEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-22T04:31:07Z",
-          "comment": "end guard"
-        },
-        {
-          "type": "PullRequestReviewCommentEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-22T04:30:00Z",
-          "comment": "end comment"
-        },
-        {
-          "type": "PullRequestReviewCommentEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-22T04:28:09Z",
-          "comment": "end comment"
-        },
-        {
-          "type": "PullRequestReviewCommentEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-22T04:27:37Z",
-          "comment": "```suggestion\n)\n\nadd_fp_unittest(\n```"
-        },
-        {
-          "type": "DeleteEvent",
-          "repo": "Sukumarsawant/llvm-project",
-          "created_at": "2026-09-19T15:35:07Z",
-          "comment": ""
-        },
-        {
-          "type": "IssueCommentEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-20T05:42:20Z",
-          "comment": "somehow the bazel bot didn't fix this "
-        },
-        {
-          "type": "PushEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-19T18:45:07Z",
-          "comment": ""
-        },
-        {
-          "type": "IssueCommentEvent",
-          "repo": "f3d-app/f3d",
-          "created_at": "2026-09-19T20:23:03Z",
-          "comment": "Hi, I'll get back on this  one"
-        },
-        {
-          "type": "PullRequestReviewEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-19T18:56:57Z",
-          "comment": ""
-        },
-        {
-          "type": "PullRequestReviewCommentEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-19T18:56:50Z",
-          "comment": "small ordering nits in cmake files (Though we don't have a formatter yet :) ) "
-        },
-        {
-          "type": "PullRequestReviewEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-19T18:44:37Z",
-          "comment": ""
-        },
-        {
-          "type": "PushEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-18T14:07:06Z",
-          "comment": ""
-        },
-        {
-          "type": "PushEvent",
-          "repo": "Sukumarsawant/deanonymizer",
-          "created_at": "2026-09-19T17:05:40Z",
-          "comment": ""
-        },
-        {
-          "type": "PullRequestReviewEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-19T16:38:07Z",
-          "comment": ""
-        },
-        {
-          "type": "PullRequestReviewEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-19T16:02:59Z",
-          "comment": ""
-        },
-        {
-          "type": "PullRequestReviewEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-19T16:02:59Z",
-          "comment": ""
-        },
-        {
-          "type": "PullRequestReviewEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-19T15:53:25Z",
-          "comment": ""
-        },
-        {
-          "type": "PullRequestEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-19T15:34:51Z",
-          "comment": ""
-        },
-        {
-          "type": "PushEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-19T15:34:52Z",
-          "comment": ""
-        },
-        {
-          "type": "PullRequestReviewEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-19T13:44:18Z",
-          "comment": ""
-        },
-        {
-          "type": "PushEvent",
-          "repo": "llvm/llvm-project",
-          "created_at": "2026-09-18T14:12:28Z",
-          "comment": ""
-        }
-      ],
-      "profile_url": "https://github.com/Sukumarsawant",
-      "avatar_url": "https://avatars.githubusercontent.com/u/174877462?v=4",
-      "updated_at": "2026-10-09T12:04:11.198Z"
+      "avatar_url": "https://www.redditstatic.com/avatars/defaults/v2/avatar_default_1.png",
+      "created_at": "2026-10-27T04:10:59.090Z"
     }
   ],
+  "github_data": [],
   "reddit_data": [
     {
       "user_id": "usr_current",
       "post_comment_id": "pe17tqh",
       "subreddit": "r/codeforces",
-      "title": "guns blazing",
+      "title": "",
       "content": "shameless question of asking what are the chances of re-prelims",
       "url": "https://reddit.com/r/codeforces/comments/1wy9m5l/guns_blazing/pe17tqh/",
       "timestamp": 1791214702,
-      "created_at": "2026-10-09T12:14:13.509Z"
+      "created_at": "2026-10-27T04:24:37.243Z"
     },
     {
       "user_id": "usr_current",
       "post_comment_id": "pdn2dzv",
       "subreddit": "r/Btechtards",
-      "title": "Immense cheating in icpc prelims today",
+      "title": "",
       "content": "I meant whats the point of conducting regionals for these dumbf who can't even give a contest honestly. ",
       "url": "https://reddit.com/r/Btechtards/comments/1wwmg7k/immense_cheating_in_icpc_prelims_today/pdn2dzv/",
       "timestamp": 1791046028,
-      "created_at": "2026-10-09T12:14:13.509Z"
+      "created_at": "2026-10-27T04:24:37.243Z"
     },
     {
       "user_id": "usr_current",
       "post_comment_id": "pdn28nl",
       "subreddit": "r/Btechtards",
-      "title": "Immense cheating in icpc prelims today",
+      "title": "",
       "content": "what are the chances of re-preliems?   \n",
       "url": "https://reddit.com/r/Btechtards/comments/1wwmg7k/immense_cheating_in_icpc_prelims_today/pdn28nl/",
       "timestamp": 1791045988,
-      "created_at": "2026-10-09T12:14:13.509Z"
+      "created_at": "2026-10-27T04:24:37.243Z"
     },
     {
       "user_id": "usr_current",
@@ -815,7 +52,7 @@
       "content": "OSS contributions are free",
       "url": "https://reddit.com/r/Btechtards/comments/1wlihqa/if_software_engineering_had_less_money_would_u/payt2ez/",
       "timestamp": 1789914753,
-      "created_at": "2026-10-09T12:14:13.509Z"
+      "created_at": "2026-10-27T04:24:37.243Z"
     },
     {
       "user_id": "usr_current",
@@ -825,7 +62,7 @@
       "content": "👍 ",
       "url": "https://reddit.com/r/mht_cet/comments/1ezvyrt/vit_wadala_mumbai_placements_kaise_hai/paxvd5m/",
       "timestamp": 1789903605,
-      "created_at": "2026-10-09T12:14:13.509Z"
+      "created_at": "2026-10-27T04:24:37.243Z"
     },
     {
       "user_id": "usr_current",
@@ -835,7 +72,7 @@
       "content": "VIT hi, but ab pachtake kya fayda ",
       "url": "https://reddit.com/r/mht_cet/comments/1ezvyrt/vit_wadala_mumbai_placements_kaise_hai/paxp41v/",
       "timestamp": 1789900789,
-      "created_at": "2026-10-09T12:14:13.509Z"
+      "created_at": "2026-10-27T04:24:37.243Z"
     },
     {
       "user_id": "usr_current",
@@ -845,17 +82,17 @@
       "content": "W",
       "url": "https://reddit.com/r/mht_cet/comments/1whjz4l/somehow_got_a_vacant_seat_in_acap_w_or_l/paki5dv/",
       "timestamp": 1789738212,
-      "created_at": "2026-10-09T12:14:13.509Z"
+      "created_at": "2026-10-27T04:24:37.243Z"
     },
     {
       "user_id": "usr_current",
       "post_comment_id": "p8p7ecz",
       "subreddit": "r/RISCV",
-      "title": "RISV guidance for beginner",
+      "title": "",
       "content": "\\+1 on this if anybody could share tips,etc   \nI really thought I had the right profile for the project though didn't even get an interview ",
       "url": "https://reddit.com/r/RISCV/comments/1vmihbj/risv_guidance_for_beginner/p8p7ecz/",
       "timestamp": 1788936980,
-      "created_at": "2026-10-09T12:14:13.509Z"
+      "created_at": "2026-10-27T04:24:37.243Z"
     },
     {
       "user_id": "usr_current",
@@ -865,7 +102,7 @@
       "content": "Ok bro :), just my opinion after spending some years in clg .  \nI feel like the people from any branch there gets opportunities atleast (oncampus).  \nI'd say such that even a VJTI production guy can secure more pkg + get more opportunities and exposure than you'd ever get in other college ( If he tries that is ).    \n",
       "url": "https://reddit.com/r/mht_cet/comments/1vinfrr/spit_202526_placements/p5ajjw8/",
       "timestamp": 1787433146,
-      "created_at": "2026-10-09T12:14:13.509Z"
+      "created_at": "2026-10-27T04:24:37.243Z"
     },
     {
       "user_id": "usr_current",
@@ -875,7 +112,7 @@
       "content": "I think only TCS came for 4th year this time . ",
       "url": "https://reddit.com/r/mht_cet/comments/1euh9k0/is_vidyalankar_mumbai_bad/p5aiscc/",
       "timestamp": 1787432916,
-      "created_at": "2026-10-09T12:14:13.509Z"
+      "created_at": "2026-10-27T04:24:37.243Z"
     },
     {
       "user_id": "usr_current",
@@ -885,7 +122,7 @@
       "content": "TLDR you have started getting good food even from local chinease shops ",
       "url": "https://reddit.com/r/mumbai/comments/1viq2ck/tukaram_mundhe_effect/p5aikp9/",
       "timestamp": 1787432853,
-      "created_at": "2026-10-09T12:14:13.509Z"
+      "created_at": "2026-10-27T04:24:37.243Z"
     },
     {
       "user_id": "usr_current",
@@ -895,7 +132,7 @@
       "content": "SFIMAR would be better ",
       "url": "https://reddit.com/r/vitmumbai/comments/1vndse8/i_just_got_st_francis_institute_of_management_and/p3o8xb6/",
       "timestamp": 1786724161,
-      "created_at": "2026-10-09T12:14:13.509Z"
+      "created_at": "2026-10-27T04:24:37.243Z"
     },
     {
       "user_id": "usr_current",
@@ -905,7 +142,7 @@
       "content": "Yup my local chinease one to stopped putting it even the chutneys .   \nTold me its banned everywhere ...  \nCommendable job tbh atleast to do that in India",
       "url": "https://reddit.com/r/mumbai/comments/1viq2ck/tukaram_mundhe_effect/p2fp113/",
       "timestamp": 1786184226,
-      "created_at": "2026-10-09T12:14:13.509Z"
+      "created_at": "2026-10-27T04:24:37.243Z"
     },
     {
       "user_id": "usr_current",
@@ -915,7 +152,7 @@
       "content": "I have 60%ile ke students to in my college top 10 me nhi aata inme se koi college there is only Big 3  in mumbai   \nVJTI SPIT and (DJ,TSEC wale clg)  \nBaki sab me ILS me kitne par bhi mil jata",
       "url": "https://reddit.com/r/mht_cet/comments/1virg9g/yall_are_fuking_bunch_of_rtrd_ffs/p2foo9a/",
       "timestamp": 1786184052,
-      "created_at": "2026-10-09T12:14:13.509Z"
+      "created_at": "2026-10-27T04:24:37.243Z"
     },
     {
       "user_id": "usr_current",
@@ -925,7 +162,7 @@
       "content": "college over branch anytime ",
       "url": "https://reddit.com/r/mht_cet/comments/1vinfrr/spit_202526_placements/p2fo4in/",
       "timestamp": 1786183780,
-      "created_at": "2026-10-09T12:14:13.509Z"
+      "created_at": "2026-10-27T04:24:37.243Z"
     },
     {
       "user_id": "usr_current",
@@ -935,7 +172,7 @@
       "content": "Idts there's any issue if you're pointing out about the reviews",
       "url": "https://reddit.com/r/Compilers/comments/1vd2hp8/compiler_devs_how_did_you_break_into_the_field/p2erb8h/",
       "timestamp": 1786167192,
-      "created_at": "2026-10-09T12:14:13.509Z"
+      "created_at": "2026-10-27T04:24:37.243Z"
     },
     {
       "user_id": "usr_current",
@@ -945,7 +182,7 @@
       "content": "ILS me accha clg lele ",
       "url": "https://reddit.com/r/mht_cet/comments/1euh9k0/is_vidyalankar_mumbai_bad/p2bq5av/",
       "timestamp": 1786130706,
-      "created_at": "2026-10-09T12:14:13.509Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -955,7 +192,7 @@
       "content": "there's an AMA I had created which I think is still valid , check that   \nAlso vidyalankar classes and this is different ",
       "url": "https://reddit.com/r/mht_cet/comments/1euh9k0/is_vidyalankar_mumbai_bad/p1zufvu/",
       "timestamp": 1785989472,
-      "created_at": "2026-10-09T12:14:13.509Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -965,7 +202,7 @@
       "content": "vit",
       "url": "https://reddit.com/r/mht_cet/comments/1euh9k0/is_vidyalankar_mumbai_bad/p1zubgj/",
       "timestamp": 1785989424,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -975,7 +212,7 @@
       "content": "abhi toh kab khatam ho rha iska wait kar rha   \nI didn't really get the college life I dreamt of here ",
       "url": "https://reddit.com/r/mht_cet/comments/1euh9k0/is_vidyalankar_mumbai_bad/p1oypjx/",
       "timestamp": 1785865584,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -985,7 +222,7 @@
       "content": "yes",
       "url": "https://reddit.com/r/mht_cet/comments/1euh9k0/is_vidyalankar_mumbai_bad/p1oyko9/",
       "timestamp": 1785865551,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -995,7 +232,7 @@
       "content": "nahi lena chaiye :)",
       "url": "https://reddit.com/r/mht_cet/comments/1euh9k0/is_vidyalankar_mumbai_bad/ozg9yn9/",
       "timestamp": 1784884869,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1005,7 +242,7 @@
       "content": "I don't really know about polytechnic ",
       "url": "https://reddit.com/r/mht_cet/comments/1euh9k0/is_vidyalankar_mumbai_bad/oz249rl/",
       "timestamp": 1784720901,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1015,7 +252,7 @@
       "content": "You can try for some better clg.",
       "url": "https://reddit.com/r/vitmumbai/comments/1u39h22/btech_biomedical_engineering/or7dk2i/",
       "timestamp": 1781261259,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1025,7 +262,7 @@
       "content": "lol, what is this reply 😂",
       "url": "https://reddit.com/r/gsoc2025/comments/1u0uf0d/a_tool_of_easy_onboarding_of_new_contributors/oqzqp7t/",
       "timestamp": 1781162822,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1035,7 +272,7 @@
       "content": "share one ",
       "url": "https://reddit.com/r/ClaudeAI/comments/1pnj9zd/free_guest_passes_share_them_here/oq42vfx/",
       "timestamp": 1780762436,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1045,7 +282,7 @@
       "content": "every T3 clg is bad ... don't fall for the cs trap lol",
       "url": "https://reddit.com/r/mht_cet/comments/1tqt8vp/what_to_choose/ooqmukh/",
       "timestamp": 1780138074,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1055,7 +292,7 @@
       "content": "green one fs ( since I chose the red one IK how bad it is, lol )",
       "url": "https://reddit.com/r/mht_cet/comments/1tqt8vp/what_to_choose/ooq2o8t/",
       "timestamp": 1780127543,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1065,7 +302,7 @@
       "content": "diploma isn't there atleast in vit . That is a different college in same campus which offers that but not that good .",
       "url": "https://reddit.com/r/mht_cet/comments/1lmt85o/vit_mumbai_ama/onlwdry/",
       "timestamp": 1779632531,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1075,7 +312,7 @@
       "content": "you can try reporting that to gsoc if they did not even acknowledge proposal and can check on the website on who got seleceted ,etc",
       "url": "https://reddit.com/r/gsoc2025/comments/1thnp41/how_do_you_guys_do_this/omuwi0c/",
       "timestamp": 1779282350,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1085,7 +322,7 @@
       "content": "for cet I have seen geniune people get 60 in boards and 99.9+ in CET",
       "url": "https://reddit.com/r/mht_cet/comments/1tidsy4/bro_what/omuwbfo/",
       "timestamp": 1779282291,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1095,7 +332,7 @@
       "content": "Maybe any socials they are on -- slack/ discord/ mail,etc ",
       "url": "https://reddit.com/r/gsoc2025/comments/1thnp41/how_do_you_guys_do_this/omuvybz/",
       "timestamp": 1779282173,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1105,7 +342,7 @@
       "content": "HSC might be the easiest of them all lol",
       "url": "https://reddit.com/r/mht_cet/comments/1tghzsr/any_one_thinking_of_improvement_jeecet_drop/omgsb6y/",
       "timestamp": 1779104250,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1115,7 +352,7 @@
       "content": "[https://www.reddit.com/r/mht\\_cet/comments/1lmt85o/vit\\_mumbai\\_ama/](https://www.reddit.com/r/mht_cet/comments/1lmt85o/vit_mumbai_ama/)\n\nCan do another AMA if needed  lol   \nBut in end its all boils up to all these T3 clgs falls in the same level so dosen't matter which you choose, all those placements they show are not real or college most probably didn't contribute anything in it.   \n",
       "url": "https://reddit.com/r/mht_cet/comments/1mrr696/vidyalankar/omgoe2e/",
       "timestamp": 1779102617,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1125,7 +362,7 @@
       "content": "Always happy to protect peeps from the clg 😂 ",
       "url": "https://reddit.com/r/mht_cet/comments/1mrr696/vidyalankar/omgo3y9/",
       "timestamp": 1779102497,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1135,7 +372,7 @@
       "content": "DJSCE can go up   \nVESIT and KJ(university one can go up )   \ni.e   \n\n\n==> VJTI, COEP, SPIT, PICT, ICT, Cummins   \n==> DJSCE, Walchand, KJS(vidyavihar), VIT pune(could consider even after merging)  \n==> All rest lie in same level ",
       "url": "https://reddit.com/r/mht_cet/comments/1tekl46/as_of_this_year_is_this_ranking_accurate/om3wycu/",
       "timestamp": 1778927505,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1145,7 +382,7 @@
       "content": "Mentors outside India are really professional in that case and much kind to communicate with",
       "url": "https://reddit.com/r/gsoc2025/comments/1t3ng4q/ai_slop_user_actually_got_into_gsoc/okzu94a/",
       "timestamp": 1778420683,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1155,7 +392,7 @@
       "content": "u/moderators",
       "url": "https://reddit.com/r/gsoc2025/comments/1t7g3fq/has_anyone_heard_back_from_cernhsf_after_being/okvipi1/",
       "timestamp": 1778355641,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1165,7 +402,7 @@
       "content": "It could have been if there was only 1 mentor.   \nTBH I too had mentors fav as a competitor in mine so the only thing you can do to compete is to show them your work .",
       "url": "https://reddit.com/r/gsoc2025/comments/1t3b4zp/gsoc_is_rigged/okvicev/",
       "timestamp": 1778355520,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1175,7 +412,7 @@
       "content": "Did you follow up ?",
       "url": "https://reddit.com/r/gsoc2025/comments/1t610vp/is_humanai_dead_in_gsoc/okvhxpe/",
       "timestamp": 1778355386,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1185,7 +422,7 @@
       "content": "Yup!   \nI didn't knew such things exist   \nBut I think it really depends on project proposed and proposals sent.  \nAdditionally I think the orgs reputation too . I have very simple projects get a slot there.",
       "url": "https://reddit.com/r/gsoc2025/comments/1t65r5k/our_slot_got_rejected_in_gsoc/okvhr5o/",
       "timestamp": 1778355326,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1195,7 +432,7 @@
       "content": "You rank  the 3 proposal   \nOrgs rank yours separatelY   \nif Your 1st and 2nd gets selected   \nand in boht proposal you were ranked first by org   \nThen your 1st gets selected   \nand the other one is given to the 2nd ",
       "url": "https://reddit.com/r/gsoc2025/comments/1t68cj7/can_we_send_more_than_1_proposal_to_different_orgs/okvhhdg/",
       "timestamp": 1778355236,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1205,7 +442,7 @@
       "content": "1 & 2: Its not kind of internship but a program ( Though your clg will consider is as one)  \n3. Any year is good   \n4. About the project and the organization's code . Learn from mentors  \n",
       "url": "https://reddit.com/r/gsoc2025/comments/1t6midu/fresher_doubt/okvh8ra/",
       "timestamp": 1778355157,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1215,7 +452,7 @@
       "content": "True for some orgs prioritizing their known ones ( polaris, newton, etc) , though for bigger orgs they choose mentors wisely .   \nIn the end its all about what you learn through it. Since GSoC is like 3-4 months .",
       "url": "https://reddit.com/r/gsoc2025/comments/1t3ng4q/ai_slop_user_actually_got_into_gsoc/okvg087/",
       "timestamp": 1778354752,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1225,7 +462,7 @@
       "content": "I think it's better not to generalize.  \nSmall comments like this lead to bigger discriminations later ( eg: cursor one where they cry later)\n\nAbout the AI usage its annoying as a reviewer to even check and argue with them tbh. Some orgs instead have adopted a policy to clearly mention the AI usage or the PRs are ignored later since no-one is arguing with an LLM",
       "url": "https://reddit.com/r/gsoc2025/comments/1t3ng4q/ai_slop_user_actually_got_into_gsoc/okvfq0d/",
       "timestamp": 1778354660,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1235,7 +472,7 @@
       "content": "this is different vit ",
       "url": "https://reddit.com/r/mht_cet/comments/1lmt85o/vit_mumbai_ama/okc4f5c/",
       "timestamp": 1778104913,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1245,7 +482,7 @@
       "content": "Nice!",
       "url": "https://reddit.com/r/gsoc2025/comments/1t2dhkr/i_havenot_recieved_the_official_mail_from_the_org/ok7wf39/",
       "timestamp": 1778059531,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1255,7 +492,7 @@
       "content": "llvm",
       "url": "https://reddit.com/r/gsoc2025/comments/1t2dhkr/i_havenot_recieved_the_official_mail_from_the_org/ok7wblk/",
       "timestamp": 1778059480,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1265,7 +502,7 @@
       "content": "75% criteria ?",
       "url": "https://reddit.com/r/mht_cet/comments/1t2ma40/hsc_is_a_scam/ojsdej0/",
       "timestamp": 1777858163,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1275,7 +512,7 @@
       "content": "You should contact then tbh, its community bonding period.   \nAlso both mentee and mentors are mailed from gsoc about the candidate so they might reach out soon.  \nwhich org btw",
       "url": "https://reddit.com/r/gsoc2025/comments/1t2dhkr/i_havenot_recieved_the_official_mail_from_the_org/ojo8x4f/",
       "timestamp": 1777812445,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1285,7 +522,7 @@
       "content": "12th results don't matter, trust me.   \nI haven't found it useful anywhere ",
       "url": "https://reddit.com/r/mht_cet/comments/1t1i1sw/hsc_results_2026_rant_megathread/ojgtr8o/",
       "timestamp": 1777708202,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1295,7 +532,7 @@
       "content": "point blank the goat !!",
       "url": "https://reddit.com/r/gsoc2025/comments/1t0ozo5/16_gsocers_in_2026_from_our_student_club_in_a/ojgs8sf/",
       "timestamp": 1777707388,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1305,7 +542,7 @@
       "content": "Software engineers are ineligible aren't they ?  \nLike my order too is funded by MNCs and the maintainers work there, but no one is applying as a mentee for sure, they are mentors",
       "url": "https://reddit.com/r/gsoc2025/comments/1t12etv/why_i_think_gsoc_is_kinda_fkd_for_select_orgs/ojgs4pf/",
       "timestamp": 1777707326,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1315,7 +552,7 @@
       "content": "I was talking about tech events 😭",
       "url": "https://reddit.com/r/mht_cet/comments/1euh9k0/is_vidyalankar_mumbai_bad/oj4o6qa/",
       "timestamp": 1777555964,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1325,7 +562,7 @@
       "content": "yup, congrats!!   \nIf its filled with the org name/project etc ",
       "url": "https://reddit.com/r/gsoc2025/comments/1szvq9s/my_program_array_is_not_empty/oj4mcti/",
       "timestamp": 1777555399,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1335,7 +572,7 @@
       "content": "Maybe he had some experience, like in ours, one was a Jane Street intern, one was pursuing PHD in the same field, one was from IIT + upcoming Google intern.   \nTo beat these, we are the ones who need to show proof of work mostly. ",
       "url": "https://reddit.com/r/gsoc2025/comments/1szr57q/dont_worry_guys_many_of_my_friends_who_are_top/oj4bp4s/",
       "timestamp": 1777551886,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1345,7 +582,7 @@
       "content": "aren't all supposed to be announced at 16:00UTC ",
       "url": "https://reddit.com/r/gsoc2025/comments/1szsh84/has_anyone_got_any_mails_or_signs_of_accceptance/oj3xooq/",
       "timestamp": 1777546432,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1355,7 +592,7 @@
       "content": "I am waiting for the confirmation too ",
       "url": "https://reddit.com/r/gsoc2025/comments/1sz6m7j/did_i_got_in/oj0ki1p/",
       "timestamp": 1777497201,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1365,7 +602,7 @@
       "content": "nahi ",
       "url": "https://reddit.com/r/mht_cet/comments/1euh9k0/is_vidyalankar_mumbai_bad/oi8viqf/",
       "timestamp": 1777143166,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1375,7 +612,7 @@
       "content": "The quality of events is bad (like too easy) even at vsit since which I attended last year ...   \nAfter 2 years here, I can say they deserve the placements and companies they get.   \n",
       "url": "https://reddit.com/r/mht_cet/comments/1euh9k0/is_vidyalankar_mumbai_bad/oi8vcpa/",
       "timestamp": 1777143117,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1385,7 +622,7 @@
       "content": "none of the 3 colleges students are respected tbh",
       "url": "https://reddit.com/r/MumbaiUniversity/comments/1jdpo3f/vidyalankar_school_of_information_technology_the/oi8outk/",
       "timestamp": 1777141222,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1395,7 +632,7 @@
       "content": "thanks",
       "url": "https://reddit.com/r/BtechMUandSPPUtards/comments/1sl8u6q/does_attendence_affect_mahadbt_scholarship/ogn8lq3/",
       "timestamp": 1776395340,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1405,7 +642,7 @@
       "content": "thanks",
       "url": "https://reddit.com/r/BtechMUandSPPUtards/comments/1sl8u6q/does_attendence_affect_mahadbt_scholarship/ogn8lc9/",
       "timestamp": 1776395336,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1415,7 +652,7 @@
       "content": "Does attendence affect MAHA-DBT scholarship ?\nref title \nhttps://www.reddit.com/r/BtechMUandSPPUtards/comments/1sl8u6q/does_attendence_affect_mahadbt_scholarship/",
       "url": "https://reddit.com/r/BtechMUandSPPUtards/comments/1sl8u6q/does_attendence_affect_mahadbt_scholarship/",
       "timestamp": 1776173533,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1425,7 +662,7 @@
       "content": "Any college except this is good :)",
       "url": "https://reddit.com/r/mumbai/comments/r3x5hq/is_vit_wadala_good_overall_for_degree/og036gu/",
       "timestamp": 1776110336,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1435,7 +672,7 @@
       "content": "is this open for all ? or only where it comes oncampus",
       "url": "https://reddit.com/r/Btechtards/comments/1rn1yy4/jp_morgan_summer_internship_for_2028_batch/o9m3l2p/",
       "timestamp": 1773115666,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1445,7 +682,7 @@
       "content": "are u aluminus btw?",
       "url": "https://reddit.com/r/mht_cet/comments/1euh9k0/is_vidyalankar_mumbai_bad/nuwg9n1/",
       "timestamp": 1766167677,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1455,7 +692,7 @@
       "content": "thats y i dont go to clg",
       "url": "https://reddit.com/r/mht_cet/comments/1euh9k0/is_vidyalankar_mumbai_bad/nuwg3gc/",
       "timestamp": 1766167625,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1465,7 +702,7 @@
       "content": "these become dead in a week bet",
       "url": "https://reddit.com/r/vjti/comments/1p5l6nc/need_study_buddies/nqpp0dp/",
       "timestamp": 1764082953,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1475,7 +712,7 @@
       "content": "the student council who organized internal hackathon and profs fav",
       "url": "https://reddit.com/r/Btechtards/comments/1oygxha/is_sih_a_scam/npby64t/",
       "timestamp": 1763394124,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1485,7 +722,7 @@
       "content": "not if u r college sabotages u and only \\*COMMITEE members get selected",
       "url": "https://reddit.com/r/Btechtards/comments/1oygxha/is_sih_a_scam/np8ehxt/",
       "timestamp": 1763337737,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1495,7 +732,7 @@
       "content": "wce?",
       "url": "https://reddit.com/r/Btechtards/comments/1oytxug/icpc_prelims_results_analysis/np8e802/",
       "timestamp": 1763337639,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1505,7 +742,7 @@
       "content": "Since everybody's posting ...here's mine till 3rd sem\nhttps://preview.redd.it/2iy31gtqip1g1.png?width=660&format=png&auto=webp&s=2aab0eaa0cf1a38e854a5601b7bdf7dcddfa9ccf\n\nwill try to improve to add worthy things in it\n\nT3-btw   \nshould have tried gsoc last yr\nhttps://www.reddit.com/r/Btechtards/comments/1oz17y9/since_everybodys_posting_heres_mine_till_3rd_sem/",
       "url": "https://reddit.com/r/Btechtards/comments/1oz17y9/since_everybodys_posting_heres_mine_till_3rd_sem/",
       "timestamp": 1763337301,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1515,7 +752,7 @@
       "content": "Since everybody's posting ...here's mine till 3rd sem\nthe image is roast itself\n\nhttps://preview.redd.it/hejgo6u4ip1g1.png?width=464&format=png&auto=webp&s=68f97b146c12b356b1cce66bad00aa29181f1090\n\n\nhttps://www.reddit.com/r/Btechtards/comments/1oz13w9/since_everybodys_posting_heres_mine_till_3rd_sem/",
       "url": "https://reddit.com/r/Btechtards/comments/1oz13w9/since_everybodys_posting_heres_mine_till_3rd_sem/",
       "timestamp": 1763336988,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1525,7 +762,7 @@
       "content": "since eveybody's posting here's mine till 3rd sem\nhttps://preview.redd.it/3awwg5nqhp1g1.png?width=464&format=png&auto=webp&s=b1dba0ffab53c87e07df5d1bc5bf480bab64525a\n\nthe image is roast itself \nhttps://www.reddit.com/r/Btechtards/comments/1oz12je/since_eveybodys_posting_heres_mine_till_3rd_sem/",
       "url": "https://reddit.com/r/Btechtards/comments/1oz12je/since_eveybodys_posting_heres_mine_till_3rd_sem/",
       "timestamp": 1763336884,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1535,7 +772,7 @@
       "content": "Links\nImp links :-\n\nVrefer : - [link](http://vidyalankarlive.com/vrefer/index.php/login?redirect_url=%252Fvrefer%252Findex.php%252Fapps%252Ffiles%252F%253Fdir%253D%252FvRefer%252FCMPN%252FSEM%252520III%252F2025-26%252FVerticals%252FPC-PCC%252FSubjects%252FMicroprocessor_PCCE02T%252FSB%252FStudy%252520Material%2526fileid%253D1079526)  ( for study material / lec notes /etc )\n\nErp portal :- [link](https://erp.mycollege.edu.in/landingpage.ashx) ( for results/concession and everything )\n\nWp official channel : - [https://whatsapp.com/channel/0029VaUbi9p5q08UowbZnb13](https://whatsapp.com/channel/0029VaUbi9p5q08UowbZnb13)\n\nCan use Vbroadcast application : for virtual IDs\n\n**Student benfirts from .edu.in email id :-**\n\n\\-github pro + education benefits\n\n\\-cursor pro\n\n\\-google gemini pro\n\n\\- Office 364 all\n\n\\- CAD software access\n\n\\- Figma Education plan (\n\n\\- and maybe some discounts due to student benefits\nhttps://www.reddit.com/r/vitmumbai/comments/1ow8492/links/",
       "url": "https://reddit.com/r/vitmumbai/comments/1ow8492/links/",
       "timestamp": 1763056934,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1545,7 +782,7 @@
       "content": "[ Removed by moderator ]\n[removed]\nhttps://www.reddit.com/r/vitmumbai/comments/1ow830q/useful_links/",
       "url": "https://reddit.com/r/vitmumbai/comments/1ow830q/useful_links/",
       "timestamp": 1763056862,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1555,7 +792,7 @@
       "content": "management ko bol fir",
       "url": "https://reddit.com/r/VITWadala/comments/1ofbzuv/monday_exam_lecs_is_the_shittiest_thing_vit_can_do/nokaz0a/",
       "timestamp": 1762999699,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1565,7 +802,7 @@
       "content": "voh unke team me h shyd",
       "url": "https://reddit.com/r/vjti/comments/1otlt9v/icpc_regionals/nokapng/",
       "timestamp": 1762999606,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1575,7 +812,7 @@
       "content": "its actually PPO converted ...google did come on campus for interns last yr luckily ...this yr nothing like that",
       "url": "https://reddit.com/r/vjti/comments/1ojsv56/2026_placement_vjti/nmb34cp/",
       "timestamp": 1761878906,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1585,7 +822,7 @@
       "content": "but ull get stuck in india",
       "url": "https://reddit.com/r/Btechtards/comments/1oj50b9/is_this_thing_true_guys/nm1gzri/",
       "timestamp": 1761758005,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1595,7 +832,7 @@
       "content": "also ig u have to be in top 500",
       "url": "https://reddit.com/r/Btechtards/comments/1oiwlg3/how_do_i_prepare_for_icpc_preliems/nm06lg8/",
       "timestamp": 1761744471,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1605,7 +842,7 @@
       "content": "tensed about it since its first time giving preliems ....",
       "url": "https://reddit.com/r/Btechtards/comments/1oiwlg3/how_do_i_prepare_for_icpc_preliems/nm06k9l/",
       "timestamp": 1761744460,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1615,7 +852,7 @@
       "content": "How do I prepare for ICPC preliems ?\n/r/Btechtards/comments/1oiwlg3/how_do_i_prepare_for_icpc_preliems/",
       "url": "https://reddit.com/r/codeforces/comments/1oiwlpg/how_do_i_prepare_for_icpc_preliems/",
       "timestamp": 1761716794,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1625,7 +862,7 @@
       "content": "How do I prepare for ICPC preliems ?\ncurrently 2nd yr (3rd sem) CS   \ncodechef 3\\* cf pupil   \nable to solve 2-3 problems of div2   \nhow do i level up to actually qualify atleast for regionals first since its first time ?  \nwe r only team participating from our clg and team members are new to cp   \nsuggests somethings /topics etc or anythign which can help if u had given these previously\nhttps://www.reddit.com/r/Btechtards/comments/1oiwlg3/how_do_i_prepare_for_icpc_preliems/",
       "url": "https://reddit.com/r/Btechtards/comments/1oiwlg3/how_do_i_prepare_for_icpc_preliems/",
       "timestamp": 1761716763,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1635,7 +872,7 @@
       "content": "itne me toh pehle full course aa jata tha",
       "url": "https://reddit.com/r/JEENEETards/comments/1o275gu/itni_bkchodi_kar_ke_last_me_course_launch_krdiya/nilu7t1/",
       "timestamp": 1760021826,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1645,7 +882,7 @@
       "content": "maybe college didnt annoy him during his period",
       "url": "https://reddit.com/r/mht_cet/comments/1nyue7f/off_campus_my_college_i_know/nik8qmu/",
       "timestamp": 1759996547,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1655,7 +892,7 @@
       "content": "their is bad -> worse -> worst and then this decision",
       "url": "https://reddit.com/r/mht_cet/comments/1nzlfsf/did_you_compromise_college_for_branch/ni6njl8/",
       "timestamp": 1759805880,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1665,7 +902,7 @@
       "content": "so its not required ? if i am UG",
       "url": "https://reddit.com/r/mumbai/comments/1d4ouee/pg_admission_query/nho1bot/",
       "timestamp": 1759552253,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1675,7 +912,7 @@
       "content": "official website se elel isme kam models milenge",
       "url": "https://reddit.com/r/mht_cet/comments/1nw4leu/help_me_choose_a_laptop_for_college/nhee1mr/",
       "timestamp": 1759426165,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1685,7 +922,7 @@
       "content": "DDR se chale ja",
       "url": "https://reddit.com/r/mht_cet/comments/1nsnzqv/how_to_get_into_vjti_be_brutally_honest/ngp1gny/",
       "timestamp": 1759084968,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1695,7 +932,7 @@
       "content": "https://preview.redd.it/8z6mxod1gbrf1.png?width=686&format=png&auto=webp&s=8aa66b0814e9a14d6052fa224e4614c5830aad7b",
       "url": "https://reddit.com/r/mht_cet/comments/1npgrn5/i_got_a_crush/ng4l7f9/",
       "timestamp": 1758808290,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1705,7 +942,7 @@
       "content": "acer nitro , lenovo loq , hp victus ,etc ig",
       "url": "https://reddit.com/r/mht_cet/comments/1nnkc3l/bhai_koi_laptop_suggest_krdo/nfmddjo/",
       "timestamp": 1758557506,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1715,7 +952,7 @@
       "content": "uk the perks of online",
       "url": "https://reddit.com/r/BtechMUandSPPUtards/comments/1nk5s9x/kya_sabka_btech_ka_4th_year_online_hai_ya_sirf/nf69fsh/",
       "timestamp": 1758331337,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1725,7 +962,7 @@
       "content": "Does anyone have DAA nptel pyq/assignments combined pdf ?\nto study ofc exams tomo\nhttps://www.reddit.com/r/Btechtards/comments/1nl6oaz/does_anyone_have_daa_nptel_pyqassignments/",
       "url": "https://reddit.com/r/Btechtards/comments/1nl6oaz/does_anyone_have_daa_nptel_pyqassignments/",
       "timestamp": 1758295735,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1735,7 +972,7 @@
       "content": "welcome \n\nhttps://preview.redd.it/fdyxmzo2a5pf1.png?width=300&format=png&auto=webp&s=ffe4f6bc1eb11758e099970ff30c7bf071872138",
       "url": "https://reddit.com/r/mht_cet/comments/1ngsfy7/jis_clg_ko_trash_bol_rha_tha_usme_it_milgya/ne6cx1x/",
       "timestamp": 1757861948,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1745,7 +982,7 @@
       "content": "kya bada kya chota sab t3 same hi h",
       "url": "https://reddit.com/r/mht_cet/comments/1ngsfy7/jis_clg_ko_trash_bol_rha_tha_usme_it_milgya/ne6ccwv/",
       "timestamp": 1757861781,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1755,7 +992,7 @@
       "content": "100 but y",
       "url": "https://reddit.com/r/IndianTeenagers/comments/1nfs8tq/drop_your_points/ne41ljl/",
       "timestamp": 1757822769,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1765,7 +1002,7 @@
       "content": "lol but atleast in kj u get good oncampus opportunity ...",
       "url": "https://reddit.com/r/mht_cet/comments/1ne8cr7/urgentt/ndq2vy0/",
       "timestamp": 1757633257,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     },
     {
       "user_id": "usr_current",
@@ -1775,10 +1012,13 @@
       "content": "vit pune\\*",
       "url": "https://reddit.com/r/mht_cet/comments/1ndy5m1/everyone_got_top_5_clg_me_hi_tier_3_me/ndnjsmb/",
       "timestamp": 1757605909,
-      "created_at": "2026-10-09T12:14:13.510Z"
+      "created_at": "2026-10-27T04:24:37.244Z"
     }
   ],
   "exposure_findings": [],
   "identity_links": [],
-  "session": null
+  "session": {
+    "userId": "usr_current",
+    "explicitLogin": true
+  }
 }

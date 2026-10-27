@@ -98,6 +98,7 @@ export default function ResearchPaper({ onOpenModal }) {
               <div className="space-y-2">
                 <button
                   onClick={onOpenModal}
+                  suppressHydrationWarning
                   className="w-full px-4 py-2.5 rounded-xl bg-brand-orange hover:bg-brand-orange-hover text-white text-xs font-bold transition-all shadow-md flex items-center justify-center gap-2"
                 >
                   <span>Read Paper & Abstract</span>
@@ -106,6 +107,7 @@ export default function ResearchPaper({ onOpenModal }) {
 
                 <button
                   onClick={onOpenModal}
+                  suppressHydrationWarning
                   className="w-full px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition-colors border border-slate-200 flex items-center justify-center gap-2"
                 >
                   <Download className="w-3.5 h-3.5 text-brand-orange" />

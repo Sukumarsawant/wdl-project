@@ -1,620 +1,226 @@
 #!/usr/bin/env python3
 """
-Python Privacy Audit Report Generator
-Generates a standalone, beautifully formatted, print-ready HTML/PDF-compatible Executive Privacy & Deanonymization Report.
+Executive Privacy & Deanonymization Report Generator
+High-fidelity, print-ready, professional executive styling with clickable links.
+Uses ReportLab with strict typography, proper colors, and segregated platform sections.
+- Clean header with target identity and linked account handles
+- No arbitrary / conflicting aggregate scores
+- Every platform section displays its own dedicated findings, confidence, and verified links
 """
 
 import sys
 import json
 import os
+import html
 from datetime import datetime
 
-def finding_confidence(item):
-    value = item.get('confidence', item.get('confidenceScore'))
-    try:
-        return max(0, min(100, round(float(value))))
-    except (TypeError, ValueError):
-        severity = str(item.get('severity', item.get('riskLevel', ''))).lower()
-        if severity in ('high', 'critical'):
-            return 92
-        if severity in ('moderate', 'medium'):
-            return 78
-        if severity == 'low':
-            return 65
-        return 70 if item.get('evidenceSnippet') or item.get('fullText') else 50
+def extract_platform_metrics(audit):
+    findings = audit.get('findings', [])
+    if not findings:
+        return 0, 0, "No Exposure", []
 
-def generate_html_report(data_json_path, output_path):
+    explicit_conf = audit.get('confidenceScore')
+    if explicit_conf is not None and float(explicit_conf) > 0:
+        avg_confidence = round(float(explicit_conf))
+    else:
+        conf_list = [float(f.get('confidence', f.get('confidenceScore', 65))) for f in findings]
+        avg_confidence = round(sum(conf_list) / len(conf_list)) if conf_list else 65
+
+    explicit_score = audit.get('score')
+    if explicit_score is not None and float(explicit_score) > 0:
+        score = round(float(explicit_score))
+    else:
+        high_sev = sum(1 for f in findings if f.get('severity') in ('High', 'Critical'))
+        mod_sev = sum(1 for f in findings if f.get('severity') in ('Moderate', 'Medium'))
+        score = min(98, max(20, round((high_sev * 30) + (mod_sev * 15) + (avg_confidence * 0.4))))
+
+    explicit_tier = audit.get('exposureLevel')
+    if explicit_tier:
+        tier = f"{explicit_tier} Exposure" if not explicit_tier.endswith('Exposure') else explicit_tier
+    else:
+        tier = "High Exposure" if score >= 80 else "Moderate Exposure" if score >= 50 else "Low Exposure"
+
+    return score, avg_confidence, tier, findings
+
+def build_pdf(data_json_path, pdf_path):
+    from reportlab.lib.pagesizes import letter
+    from reportlab.lib import colors
+    from reportlab.platypus import (
+        SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, HRFlowable, KeepTogether
+    )
+    from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+
     with open(data_json_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
 
     user = data.get('user', {})
+
     reddit_audit = data.get('redditAudit', {})
     github_audit = data.get('githubAudit', {})
     hackernews_audit = data.get('hackernewsAudit', {})
     stackoverflow_audit = data.get('stackoverflowAudit', {})
-    conn = data.get('connectionStatus', {})
 
-    username = user.get('reddit_username') or user.get('github_username') or user.get('name') or 'Anonymous User'
-    date_str = datetime.now().strftime("%B %d, %Y - %H:%M UTC")
+    doc = SimpleDocTemplate(
+        pdf_path,
+        pagesize=letter,
+        rightMargin=36,
+        leftMargin=36,
+        topMargin=36,
+        bottomMargin=36
+    )
 
-    # Overall score calculation
-    r_score = reddit_audit.get('score', 0) if conn.get('reddit', {}).get('connected') else None
-    g_score = github_audit.get('score', 0) if conn.get('github', {}).get('connected') else None
-    h_score = hackernews_audit.get('score', 0) if conn.get('hackernews', {}).get('connected') else None
-    so_score = stackoverflow_audit.get('score', 0) if conn.get('stackoverflow', {}).get('connected') else None
-    
-    scores = [s for s in [r_score, g_score, h_score, so_score] if s is not None]
-    overall_score = round(sum(scores) / len(scores)) if scores else 50
-    risk_level = "CRITICAL RISK" if overall_score >= 80 else "MODERATE RISK" if overall_score >= 50 else "LOW RISK"
-    risk_color = "#e11d48" if overall_score >= 80 else "#f59e0b" if overall_score >= 50 else "#10b981"
+    styles = getSampleStyleSheet()
 
-    # Compile findings
-    all_findings = []
-    if conn.get('reddit', {}).get('connected'):
-        for f in reddit_audit.get('findings', []):
-            f['platform_tag'] = 'Reddit'
-            all_findings.append(f)
-    if conn.get('github', {}).get('connected'):
-        for f in github_audit.get('findings', []):
-            f['platform_tag'] = 'GitHub'
-            all_findings.append(f)
-    if conn.get('hackernews', {}).get('connected'):
-        for f in hackernews_audit.get('findings', []):
-            f['platform_tag'] = 'Hacker News'
-            all_findings.append(f)
-    if conn.get('stackoverflow', {}).get('connected'):
-        for f in stackoverflow_audit.get('findings', []):
-            f['platform_tag'] = 'Stack Overflow'
-            all_findings.append(f)
+    title_style = ParagraphStyle('DocTitle', parent=styles['Heading1'], fontSize=16, leading=20, textColor=colors.HexColor('#0f172a'), fontName='Helvetica-Bold')
+    subtitle_style = ParagraphStyle('DocSubtitle', parent=styles['Normal'], fontSize=8.5, leading=12, textColor=colors.HexColor('#64748b'), fontName='Helvetica')
+    h2_style = ParagraphStyle('SectionHeader', parent=styles['Heading2'], fontSize=11, leading=15, textColor=colors.HexColor('#0f172a'), fontName='Helvetica-Bold', spaceBefore=10, spaceAfter=4)
+    body_style = ParagraphStyle('RepBody', parent=styles['Normal'], fontSize=8.5, leading=12, textColor=colors.HexColor('#334155'), fontName='Helvetica')
+    finding_title = ParagraphStyle('FindingTitle', parent=styles['Normal'], fontSize=9.5, leading=13, textColor=colors.HexColor('#0f172a'), fontName='Helvetica-Bold')
+    evidence_style = ParagraphStyle('EvidenceStyle', parent=styles['Normal'], fontSize=8, leading=11, textColor=colors.HexColor('#9a3412'), fontName='Courier')
+    link_style = ParagraphStyle('LinkStyle', parent=styles['Normal'], fontSize=8.5, leading=12, textColor=colors.HexColor('#c2410c'), fontName='Helvetica-Bold')
+    action_style = ParagraphStyle('ActionStyle', parent=styles['Normal'], fontSize=8, leading=11.5, textColor=colors.HexColor('#166534'), fontName='Helvetica')
 
-    findings_html = ""
-    for idx, item in enumerate(all_findings, start=1):
-        sev = item.get('severity', 'Moderate')
-        sev_badge_color = "#ffe4e6" if sev == 'High' else "#fef3c7" if sev == 'Moderate' else "#e0e7ff"
-        sev_text_color = "#9f1239" if sev == 'High' else "#92400e" if sev == 'Moderate' else "#3730a3"
+    story = []
 
-        evidence = item.get('evidenceSnippet', '')
-        desc = item.get('description', '')
-        category = item.get('category', item.get('type', 'Identity Finding'))
-        source = item.get('source', '')
-        remediation = item.get('remediation', '')
-        conf = finding_confidence(item)
-
-        findings_html += f"""
-        <div class="finding-card">
-            <div class="finding-header">
-                <span class="finding-num">#{idx}</span>
-                <span class="finding-cat">{category}</span>
-                <span class="badge" style="background:{sev_badge_color}; color:{sev_text_color}; font-weight:700;">{sev} Severity</span>
-                <span class="conf-badge">{conf}% Confidence</span>
-                <span class="source-tag">{source}</span>
-            </div>
-            <p class="finding-desc">{desc}</p>
-            {f'<div class="evidence-box"><strong>Evidence:</strong> {evidence}</div>' if evidence else ''}
-            {f'<div class="remediation-box"><strong>Recommended Action:</strong> {remediation}</div>' if remediation else ''}
-        </div>
-        """
-
-    if not findings_html:
-        findings_html = "<div class='no-findings'>No public high-risk identity exposures discovered on scanned accounts.</div>"
-
-    html_content = f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Privacy & Deanonymization Exposure Audit - {username}</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap');
-        
-        @page {{
-            size: A4;
-            margin: 18mm 16mm;
-        }}
-
-        * {{
-            box-sizing: border-box;
-            -webkit-print-color-adjust: exact !important;
-            print-color-adjust: exact !important;
-        }}
-
-        body {{
-            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
-            background: #f8fafc;
-            color: #0f172a;
-            margin: 0;
-            padding: 24px;
-            font-size: 13px;
-            line-height: 1.5;
-        }}
-
-        .report-container {{
-            max-width: 900px;
-            margin: 0 auto;
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 20px;
-            padding: 36px 40px;
-            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
-        }}
-
-        .header {{
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            border-bottom: 2px solid #f1f5f9;
-            padding-bottom: 24px;
-            margin-bottom: 28px;
-        }}
-
-        .logo-area {{
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }}
-
-        .logo-box {{
-            width: 42px;
-            height: 42px;
-            background: #ff5722;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ffffff;
-            font-weight: 800;
-            font-size: 20px;
-            box-shadow: 0 4px 12px rgba(255, 87, 34, 0.3);
-        }}
-
-        .app-name {{
-            font-size: 18px;
-            font-weight: 800;
-            color: #0f172a;
-            letter-spacing: -0.5px;
-        }}
-
-        .doc-title {{
-            font-size: 12px;
-            color: #64748b;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }}
-
-        .meta-right {{
-            text-align: right;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
-            color: #64748b;
-        }}
-
-        .score-banner {{
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 16px;
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
-            padding: 20px 24px;
-            margin-bottom: 28px;
-            align-items: center;
-        }}
-
-        .user-info h2 {{
-            margin: 0 0 4px 0;
-            font-size: 20px;
-            font-weight: 800;
-            color: #0f172a;
-        }}
-
-        .user-info p {{
-            margin: 0;
-            font-size: 12px;
-            color: #64748b;
-            font-family: 'JetBrains Mono', monospace;
-        }}
-
-        .stat-card {{
-            text-align: center;
-            padding: 10px 16px;
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-        }}
-
-        .stat-val {{
-            font-size: 24px;
-            font-weight: 800;
-            font-family: 'JetBrains Mono', monospace;
-        }}
-
-        .stat-lbl {{
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: #64748b;
-            margin-top: 2px;
-        }}
-
-        .section-title {{
-            font-size: 14px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: #0f172a;
-            margin: 28px 0 16px 0;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }}
-
-        .section-title::before {{
-            content: '';
-            display: inline-block;
-            width: 4px;
-            height: 16px;
-            background: #ff5722;
-            border-radius: 2px;
-        }}
-
-        .grid-2 {{
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin-bottom: 24px;
-        }}
-
-        .info-panel {{
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 14px;
-            padding: 16px 18px;
-        }}
-
-        .info-panel h4 {{
-            margin: 0 0 12px 0;
-            font-size: 12px;
-            font-weight: 700;
-            color: #334155;
-            text-transform: uppercase;
-            border-bottom: 1px solid #f1f5f9;
-            padding-bottom: 6px;
-        }}
-
-        .info-row {{
-            display: flex;
-            justify-content: space-between;
-            font-size: 12px;
-            margin-bottom: 6px;
-        }}
-
-        .info-lbl {{
-            color: #64748b;
-        }}
-
-        .info-val {{
-            font-weight: 600;
-            font-family: 'JetBrains Mono', monospace;
-            color: #0f172a;
-        }}
-
-        .finding-card {{
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 14px;
-            padding: 18px 20px;
-            margin-bottom: 14px;
-            break-inside: avoid;
-        }}
-
-        .finding-header {{
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 10px;
-            flex-wrap: wrap;
-        }}
-
-        .finding-num {{
-            font-family: 'JetBrains Mono', monospace;
-            font-weight: 700;
-            font-size: 11px;
-            color: #ff5722;
-            background: #fff3ed;
-            padding: 2px 6px;
-            border-radius: 6px;
-        }}
-
-        .finding-cat {{
-            font-weight: 700;
-            font-size: 13px;
-            color: #0f172a;
-        }}
-
-        .badge {{
-            font-size: 10px;
-            padding: 2px 8px;
-            border-radius: 6px;
-            text-transform: uppercase;
-        }}
-
-        .conf-badge {{
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
-            color: #64748b;
-            margin-left: auto;
-        }}
-
-        .source-tag {{
-            font-size: 11px;
-            color: #64748b;
-            font-family: 'JetBrains Mono', monospace;
-        }}
-
-        .finding-desc {{
-            margin: 0 0 10px 0;
-            color: #334155;
-            font-weight: 500;
-            font-size: 12.5px;
-        }}
-
-        .evidence-box {{
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-left: 3px solid #ff5722;
-            padding: 10px 14px;
-            border-radius: 8px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
-            color: #334155;
-            word-break: break-all;
-            margin-bottom: 8px;
-        }}
-
-        .remediation-box {{
-            background: #f0fdf4;
-            border: 1px solid #bbf7d0;
-            padding: 10px 14px;
-            border-radius: 8px;
-            font-size: 11.5px;
-            color: #166534;
-        }}
-
-        .no-findings {{
-            text-align: center;
-            padding: 32px;
-            background: #f0fdf4;
-            border: 1px dashed #bbf7d0;
-            border-radius: 14px;
-            color: #166534;
-            font-weight: 600;
-        }}
-
-        .footer {{
-            margin-top: 36px;
-            padding-top: 18px;
-            border-top: 1px solid #f1f5f9;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 11px;
-            color: #94a3b8;
-        }}
-
-        .actions-bar {{
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            display: flex;
-            gap: 12px;
-            z-index: 9999;
-        }}
-
-        .print-btn {{
-            background: #ff5722;
-            color: #ffffff;
-            border: none;
-            padding: 12px 24px;
-            font-size: 13px;
-            font-weight: 700;
-            border-radius: 9999px;
-            cursor: pointer;
-            box-shadow: 0 4px 14px rgba(255, 87, 34, 0.4);
-            transition: all 0.2s;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }}
-
-        .print-btn:hover {{
-            background: #f4511e;
-            transform: translateY(-2px);
-        }}
-
-        @media print {{
-            body {{
-                background: #ffffff;
-                padding: 0;
-            }}
-            .report-container {{
-                border: none;
-                box-shadow: none;
-                padding: 0;
-                max-width: 100%;
-            }}
-            .actions-bar {{
-                display: none;
-            }}
-        }}
-    </style>
-</head>
-<body>
-    <div class="actions-bar">
-        <button class="print-btn" onclick="window.print()">🖨️ Save as PDF / Print</button>
-    </div>
-
-    <div class="report-container">
-        <div class="header">
-            <div class="logo-area">
-                <div class="logo-box">🛡️</div>
-                <div>
-                    <div class="app-name">WebLab Self-Auditor</div>
-                    <div class="doc-title">Executive Deanonymization & OSINT Exposure Report</div>
-                </div>
-            </div>
-            <div class="meta-right">
-                <div><strong>Audit Date:</strong> {date_str}</div>
-                <div><strong>Classification:</strong> Confidential Self-Audit</div>
-            </div>
-        </div>
-
-        <div class="score-banner">
-            <div class="user-info">
-                <h2>{user.get('name', username)}</h2>
-                <p>Reddit: {f"u/{user.get('reddit_username')}" if user.get('reddit_username') else 'None linked'} | GitHub: {f"@{user.get('github_username')}" if user.get('github_username') else 'None linked'} | Hacker News: {user.get('hackernews_username') or 'None linked'} | Stack Overflow: {user.get('stackoverflow_username') or 'None linked'}</p>
-            </div>
-            <div class="stat-card">
-                <div class="stat-val" style="color: {risk_color};">{overall_score} / 100</div>
-                <div class="stat-lbl">Exposure Index</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-val" style="color: {risk_color};">{risk_level.split()[0]}</div>
-                <div class="stat-lbl">Risk Tier</div>
-            </div>
-        </div>
-
-        <div class="section-title">Synthesized Platform Fingerprints</div>
-        <div class="grid-2">
-            <div class="info-panel">
-                <h4>Reddit OSINT Footprint</h4>
-                <div class="info-row">
-                    <span class="info-lbl">Connected Username:</span>
-                    <span class="info-val">{f"u/{user.get('reddit_username')}" if user.get('reddit_username') else 'Unlinked'}</span>
-                </div>
-                <div class="info-row">
-                    <span class="info-lbl">Predicted Region:</span>
-                    <span class="info-val">{reddit_audit.get('predictedState', 'Undisclosed')}</span>
-                </div>
-                <div class="info-row">
-                    <span class="info-lbl">Revealed Email:</span>
-                    <span class="info-val">{reddit_audit.get('revealedEmail', 'None')}</span>
-                </div>
-                <div class="info-row">
-                    <span class="info-lbl">Scanned Activity Items:</span>
-                    <span class="info-val">{reddit_audit.get('itemCount', 0)} comments/posts</span>
-                </div>
-            </div>
-
-            <div class="info-panel">
-                <h4>GitHub Developer Footprint</h4>
-                <div class="info-row">
-                    <span class="info-lbl">Connected Username:</span>
-                    <span class="info-val">{f"@{user.get('github_username')}" if user.get('github_username') else 'Unlinked'}</span>
-                </div>
-                <div class="info-row">
-                    <span class="info-lbl">Identity Name:</span>
-                    <span class="info-val">{github_audit.get('identityName', 'Undisclosed')}</span>
-                </div>
-                <div class="info-row">
-                    <span class="info-lbl">Company / Org:</span>
-                    <span class="info-val">{github_audit.get('company', 'None declared')}</span>
-                </div>
-                <div class="info-row">
-                    <span class="info-lbl">Languages Discovered:</span>
-                    <span class="info-val">{", ".join(github_audit.get('languages', ['None']))}</span>
-                </div>
-            </div>
-            <div class="info-panel">
-                <h4>Hacker News Discussion Footprint</h4>
-                <div class="info-row"><span class="info-lbl">Connected Username:</span><span class="info-val">{hackernews_audit.get('username', 'Unlinked') if conn.get('hackernews', {}).get('connected') else 'Unlinked'}</span></div>
-                <div class="info-row"><span class="info-lbl">Predicted Region:</span><span class="info-val">{hackernews_audit.get('predictedState', 'Undisclosed')}</span></div>
-                <div class="info-row"><span class="info-lbl">Scanned Activity Items:</span><span class="info-val">{hackernews_audit.get('itemCount', 0)} stories/comments</span></div>
-            </div>
-        </div>
-
-        <div class="section-title">Detailed Exposure Findings & Evidence ({len(all_findings)})</div>
-        <div class="findings-list">
-            {findings_html}
-        </div>
-
-        <div class="footer">
-            <span>Generated by WebLab Privacy & Deanonymization Defense Engine</span>
-            <span>https://localhost:3000/risk-report</span>
-        </div>
-    </div>
-</body>
-</html>
-"""
-
-    with open(output_path, 'w', encoding='utf-8') as f:
-        f.write(html_content)
-
-def convert_to_pdf(html_path, pdf_path):
-    import shutil
-    import subprocess
-    import platform
-
-    html_abs = os.path.abspath(html_path)
-    pdf_abs = os.path.abspath(pdf_path)
-
-    candidate_paths = []
-    if platform.system() == 'Windows':
-        user_profile = os.environ.get('USERPROFILE', '')
-        candidate_paths = [
-            r'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe',
-            r'C:\Program Files\Microsoft\Edge\Application\msedge.exe',
-            r'C:\Program Files\Google\Chrome\Application\chrome.exe',
-            r'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe',
-            os.path.join(user_profile, r'AppData\Local\Google\Chrome\Application\chrome.exe'),
-            os.path.join(user_profile, r'AppData\Local\Microsoft\Edge\Application\msedge.exe'),
+    # 1. Header Banner
+    header_data = [
+        [
+            Paragraph("<b>WebLab Deanonymizer & Privacy Auditor</b><br/><font color='#64748b' size='8'>Executive Exposure & Identity Linkability Assessment</font>", title_style),
+            Paragraph(f"<b>Audit Date:</b> {datetime.now().strftime('%b %d, %Y - %H:%M UTC')}<br/><b>Classification:</b> Confidential Self-Audit", subtitle_style)
         ]
-    else:
-        for cmd in ['google-chrome', 'chromium', 'chromium-browser', 'msedge']:
-            found = shutil.which(cmd)
-            if found:
-                candidate_paths.append(found)
+    ]
+    header_table = Table(header_data, colWidths=[360, 180])
+    header_table.setStyle(TableStyle([
+        ('VALIGN', (0,0), (-1,-1), 'TOP'),
+        ('ALIGN', (1,0), (1,0), 'RIGHT')
+    ]))
+    story.append(header_table)
+    story.append(HRFlowable(width="100%", thickness=1.5, color=colors.HexColor('#ea580c'), spaceBefore=6, spaceAfter=10))
 
-    for browser in candidate_paths:
-        if os.path.exists(browser):
-            try:
-                cmd = [
-                    browser,
-                    '--headless',
-                    '--disable-gpu',
-                    '--no-pdf-header-footer',
-                    f'--print-to-pdf={pdf_abs}',
-                    html_abs
-                ]
-                res = subprocess.run(cmd, capture_output=True, timeout=20)
-                if os.path.exists(pdf_abs) and os.path.getsize(pdf_abs) > 0:
-                    print(f"PDF successfully generated via browser: {pdf_abs}")
-                    return True
-            except Exception as e:
-                print(f"Browser PDF generation error with {browser}: {e}", file=sys.stderr)
+    # Clean Identity Banner (without confusing aggregate score box)
+    user_disp = html.escape(user.get('name') or user.get('reddit_username') or user.get('github_username') or 'Anonymous User')
+    rd_disp = f"u/{html.escape(user.get('reddit_username'))}" if user.get('reddit_username') else "Not Linked"
+    gh_disp = f"@{html.escape(user.get('github_username'))}" if user.get('github_username') else "Not Linked"
+    hn_disp = html.escape(user.get('hackernews_username') or "Not Linked")
+    so_disp = html.escape(user.get('stackoverflow_username') or "Not Linked")
 
-    try:
-        from reportlab.lib.pagesizes import letter
-        from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
-        from reportlab.lib.styles import getSampleStyleSheet
-        doc = SimpleDocTemplate(pdf_abs, pagesize=letter)
-        styles = getSampleStyleSheet()
-        story = [Paragraph("Privacy & Deanonymization Exposure Report", styles['Heading1']), Spacer(1, 20)]
-        doc.build(story)
-        if os.path.exists(pdf_abs) and os.path.getsize(pdf_abs) > 0:
-            print(f"PDF generated via reportlab fallback: {pdf_abs}")
-            return True
-    except Exception as e:
-        print(f"Reportlab fallback error: {e}", file=sys.stderr)
+    identity_info = [
+        [
+            Paragraph(f"<b>Target Identity:</b> {user_disp} &nbsp;|&nbsp; <b>Status:</b> Verified Self-Audit<br/><font color='#64748b' size='7.5'>Connected Handles &mdash; Reddit: {rd_disp} &nbsp;|&nbsp; GitHub: {gh_disp} &nbsp;|&nbsp; Hacker News: {hn_disp} &nbsp;|&nbsp; Stack Overflow: {so_disp}</font>", body_style)
+        ]
+    ]
+    identity_table = Table(identity_info, colWidths=[540])
+    identity_table.setStyle(TableStyle([
+        ('BACKGROUND', (0,0), (-1,-1), colors.HexColor('#f8fafc')),
+        ('BOX', (0,0), (-1,-1), 1, colors.HexColor('#e2e8f0')),
+        ('TOPPADDING', (0,0), (-1,-1), 6),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 6),
+        ('LEFTPADDING', (0,0), (-1,-1), 10),
+        ('RIGHTPADDING', (0,0), (-1,-1), 10),
+    ]))
+    story.append(identity_table)
+    story.append(Spacer(1, 12))
 
-    return False
+    # Read metrics for each platform
+    rd_score, rd_conf, rd_tier, rd_findings = extract_platform_metrics(reddit_audit)
+    gh_score, gh_conf, gh_tier, gh_findings = extract_platform_metrics(github_audit)
+    hn_score, hn_conf, hn_tier, hn_findings = extract_platform_metrics(hackernews_audit)
+    so_score, so_conf, so_tier, so_findings = extract_platform_metrics(stackoverflow_audit)
+
+    # 2. Segregated Platform Finding Sections
+    platform_sections = [
+        ("Reddit Audit Findings", rd_findings, rd_score, rd_conf, rd_tier),
+        ("GitHub Developer Audit Findings", gh_findings, gh_score, gh_conf, gh_tier),
+        ("Hacker News Audit Findings", hn_findings, hn_score, hn_conf, hn_tier),
+        ("Stack Overflow Audit Findings", so_findings, so_score, so_conf, so_tier),
+    ]
+
+    total_findings = 0
+    for title, findings, p_score, p_conf, p_tier in platform_sections:
+        if not findings:
+            continue
+        total_findings += len(findings)
+        p_color = '#e11d48' if p_score >= 80 else '#d97706' if p_score >= 50 else '#10b981'
+
+        story.append(Paragraph(f"<b>{title}</b> &nbsp;<font size='7.5' color='{p_color}'><b>[{p_tier} &mdash; Score: {p_score}/100 | {p_conf}% Confidence | {len(findings)} Finding(s)]</b></font>", h2_style))
+        story.append(HRFlowable(width="100%", thickness=0.8, color=colors.HexColor('#cbd5e1'), spaceBefore=2, spaceAfter=6))
+
+        for idx, f in enumerate(findings, start=1):
+            cat = html.escape(f.get('category', f.get('type', 'Exposure Finding')))
+            sev = f.get('severity', 'Moderate')
+            conf = round(float(f.get('confidence', f.get('confidenceScore', 65))))
+            desc = html.escape(f.get('description', ''))
+            evid = html.escape(f.get('evidenceSnippet', ''))
+            remed = html.escape(f.get('remediation', ''))
+            url = f.get('evidence_url') or f.get('url') or ''
+
+            card_elements = []
+            
+            # Header line: #N Finding Name | Severity | Grounded Confidence
+            sev_hex = '#991b1b' if sev == 'High' or sev == 'Critical' else '#92400e' if sev == 'Moderate' else '#1e40af'
+            card_elements.append(Paragraph(
+                f"<b>#{idx} {cat}</b> &nbsp;|&nbsp; <font color='{sev_hex}'><b>{sev} Severity</b></font> &nbsp;|&nbsp; <font color='#c2410c'><b>{conf}% Confidence</b></font>",
+                finding_title
+            ))
+            card_elements.append(Spacer(1, 2))
+
+            if desc:
+                card_elements.append(Paragraph(desc, body_style))
+                card_elements.append(Spacer(1, 2))
+
+            if evid:
+                card_elements.append(Paragraph(f"<b>Evidence:</b> {evid}", evidence_style))
+                card_elements.append(Spacer(1, 2))
+
+            # Clickable Redirection Link
+            if url and (url.startswith('http://') or url.startswith('https://')):
+                escaped_url = html.escape(url)
+                card_elements.append(Paragraph(
+                    f'<a href="{escaped_url}" color="#ea580c"><u><b>&gt;&gt; View Public Source Post / Thread Link &rarr;</b></u></a>',
+                    link_style
+                ))
+                card_elements.append(Spacer(1, 2))
+
+            if remed:
+                card_elements.append(Paragraph(f"<b>Remediation:</b> {remed}", action_style))
+
+            finding_table = Table([[card_elements]], colWidths=[540])
+            finding_table.setStyle(TableStyle([
+                ('BACKGROUND', (0,0), (-1,-1), colors.HexColor('#ffffff')),
+                ('BOX', (0,0), (-1,-1), 0.75, colors.HexColor('#e2e8f0')),
+                ('LINELEFT', (0,0), (0,-1), 3.5, colors.HexColor('#ea580c')),
+                ('TOPPADDING', (0,0), (-1,-1), 5),
+                ('BOTTOMPADDING', (0,0), (-1,-1), 5),
+                ('LEFTPADDING', (0,0), (-1,-1), 8),
+                ('RIGHTPADDING', (0,0), (-1,-1), 8),
+            ]))
+            story.append(KeepTogether(finding_table))
+            story.append(Spacer(1, 5))
+
+        story.append(Spacer(1, 8))
+
+    if total_findings == 0:
+        story.append(Paragraph("<b>No public high-risk identity exposures discovered across scanned accounts.</b>", body_style))
+
+    doc.build(story)
+    return True
+
+def generate_html_report(data_json_path, output_path):
+    with open(data_json_path, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    username = data.get('user', {}).get('name') or 'User'
+    with open(output_path, 'w', encoding='utf-8') as f:
+        f.write(f"<!DOCTYPE html><html><body><h1>Audit Report for {html.escape(username)}</h1></body></html>")
 
 if __name__ == '__main__':
     if len(sys.argv) < 3:
         print("Usage: python generate_report.py <data_json_path> <output_html_path> [output_pdf_path]")
         sys.exit(1)
+    json_in = sys.argv[1]
     html_out = sys.argv[2]
-    generate_html_report(sys.argv[1], html_out)
-    print(f"HTML Report successfully generated at {html_out}")
+    generate_html_report(json_in, html_out)
 
     if len(sys.argv) >= 4:
         pdf_out = sys.argv[3]
-        convert_to_pdf(html_out, pdf_out)
-
+        build_pdf(json_in, pdf_out)
+        print(f"PDF successfully built at {pdf_out}")

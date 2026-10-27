@@ -12,7 +12,9 @@ export default function Home() {
   const [isPaperModalOpen, setIsPaperModalOpen] = useState(false);
 
   const handleOpenPaperModal = () => {
-    setIsPaperModalOpen(true);
+    if (typeof window !== 'undefined') {
+      window.open('https://drive.google.com/file/d/1hdj4JTB9VNnOqVmFJcjBwEeTPkNYgf9c/view?usp=sharing', '_blank');
+    }
   };
 
   const handleClosePaperModal = () => {

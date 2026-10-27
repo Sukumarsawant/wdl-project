@@ -174,10 +174,12 @@ export default function Hero({ onOpenPaperModal }) {
                 }}
                 onFocus={() => setIsDropdownOpen(true)}
                 placeholder="Search username or handle (e.g., github.com/alice-dev, @alicedev)..."
+                suppressHydrationWarning
                 className="w-full py-3.5 pl-3 pr-32 text-sm bg-transparent text-slate-900 placeholder-slate-400 focus:outline-none font-mono"
               />
               <button
                 type="submit"
+                suppressHydrationWarning
                 className="absolute right-2 px-6 py-3 rounded-full bg-orange-600 hover:bg-orange-700 text-white text-xs font-bold transition-all shadow-md flex items-center gap-1.5"
               >
                 <span>Audit</span>
